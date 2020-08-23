@@ -34,8 +34,7 @@ export default {
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
-  plugins: [
-  ],
+  plugins: ["@/plugins/google-map"],
   /*
   ** Auto import components
   ** See https://nuxtjs.org/api/configuration-components
@@ -52,6 +51,7 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
+    "@nuxtjs/dotenv",
   ],
   /*
   ** Build configuration
@@ -65,5 +65,6 @@ export default {
         }
       }
     },
+    transpile: [/^vue2-google-maps($|\/)/]
   }
 }
