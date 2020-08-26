@@ -24,6 +24,18 @@ export default {
   components: {
     MarkerItem, Gmap
   },
+  head() {
+      return {
+        title: 'Walls - HKLAXWALLS',
+        meta: [
+          {
+            hid: 'walls',
+            name: 'walls',
+            content: 'All your favorite lacrosse walls in Hong Kong'
+          }
+        ]
+      }
+    }
 }
 </script>
 

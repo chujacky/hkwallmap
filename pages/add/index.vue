@@ -21,7 +21,19 @@ import Search from '../../components/Search';
 
 export default {
   components: {
-    AddWallForm, Gmap, Search
+    AddWallForm, Gmap, Search,
+    head() {
+      return {
+        title: 'Add Wall - HKLAXWALLS',
+        meta: [
+          {
+            hid: 'add',
+            name: 'add',
+            content: 'Add your favorite walls'
+          }
+        ]
+      }
+    }
   }
 }
 </script>
