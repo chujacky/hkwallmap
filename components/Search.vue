@@ -1,7 +1,9 @@
 <template>
-  <div class="control">
+  <div class="field">
+    <label class="label">Search address or drop the marker on the map</label>
     <gmap-autocomplete
-      placeholder="Type address"
+      class="input is-small"
+      placeholder="Type address..."
       @place_changed="setPlace">
     </gmap-autocomplete>
   </div>
@@ -31,6 +33,5 @@ export default {
 <style scoped>
   input {
     width: 50%;
-    height: 2.5em;
   }
 </style>

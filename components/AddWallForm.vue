@@ -20,7 +20,7 @@
     </div>
     <div class="field">
       <label class="label">What are the chances of getting into trouble?</label>
-      <textarea class="textarea" rows="2" v-model="trouble" required></textarea>
+      <textarea class="textarea is-small" v-model="trouble" required></textarea>
     </div>
     <div class="field">
       <label class="label">When is the best time to use the wall?</label>
@@ -38,18 +38,20 @@
       <label class="label">How do you get there?</label>
       <input class="input is-small" type="text" v-model="transport" required>
     </div>
-    <div class="file">
-      <label class="file-label">
-        <input class="file-input" type="file" ref="imageFile" 
-          accept="image/png, image/jpeg"
-          @change.prevent="setFile($event.target.files)" 
-          >
-        <span class="file-cta">
-          <span class="file-label">
-            Choose a file…
+    <div class="field">
+      <div class="file is-small">
+        <label class="file-label">
+          <input class="file-input" type="file" ref="imageFile" 
+            accept="image/png, image/jpeg"
+            @change.prevent="setFile($event.target.files)" 
+            >
+          <span class="file-cta">
+            <span class="file-label">
+              Choose a file…
+            </span>
           </span>
-        </span>
-      </label>
+        </label>
+      </div>
     </div>
     <div class="control">
       <button class="button is-link">Submit</button>
