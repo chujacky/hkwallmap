@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <nuxt-link to="/" class="navbar-item">
         <h2 class="title">hklaxwalls</h2>
@@ -36,3 +36,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  a.navbar-item.is-active {
+    cursor: default;
+  }
+</style>
