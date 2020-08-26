@@ -2,23 +2,21 @@
   <form @submit="handleForm">
     <div class="field">
       <label class="label">Player Name</label>
-      <input type="text" v-model="player" required>
+      <input class="input is-small" type="text" v-model="player">
     </div>
     <div class="field">
       <label class="label">Instagram ID</label>
-      <input type="text" v-model="ig">
+      <input class="input is-small" type="text" v-model="ig">
     </div>
     <div class="field">
-      <label class="label">Latitude</label>
-      <input type="number" v-model.number="position.lat" step="any" required>
+      <input class="input is-small" type="hidden" v-model.number="position.lat" step="any" required>
     </div>
     <div class="field">
-      <label class="label">Longitude</label>
-      <input type="number" v-model.number="position.lng" step="any" required>
+      <input class="input is-small" type="hidden" v-model.number="position.lng" step="any" required>
     </div>
     <div class="field">
       <label class="label">Name of Wall</label>
-      <input type="text" v-model="name" requried>
+      <input class="input is-small" type="text" v-model="name" requried>
     </div>
     <div class="field">
       <label class="label">What are the chances of getting into trouble?</label>
@@ -26,19 +24,32 @@
     </div>
     <div class="field">
       <label class="label">When is the best time to use the wall?</label>
-      <input type="text" v-model="time" required>
+      <input class="input is-small" type="text" v-model="time" required>
     </div>
     <div class="field">
       <label class="label">Is the wall spacious?</label>
-      <input type="text" v-model="space" required>
+      <input class="input is-small" type="text" v-model="space" required>
     </div>
     <div class="field">
       <label class="label">What are the chances of losing the ball?</label>
-      <input type="text" v-model="ballSafety" required>
+      <input class="input is-small" type="text" v-model="ballSafety" required>
     </div>
     <div class="field">
       <label class="label">How do you get there?</label>
-      <input type="text" v-model="transport" required>
+      <input class="input is-small" type="text" v-model="transport" required>
+    </div>
+    <div class="file">
+      <label class="file-label">
+        <input class="file-input" type="file" ref="imageFile" 
+          accept="image/png, image/jpeg"
+          @change.prevent="setFile($event.target.files)" 
+          >
+        <span class="file-cta">
+          <span class="file-label">
+            Choose a file…
+          </span>
+        </span>
+      </label>
     </div>
     <div class="control">
       <button class="button is-link">Submit</button>
@@ -47,34 +58,98 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'add-wall-form',
   data() {
     return {
       player: '',
       ig: '',
-      position: {
-        lat: null,
-        lng: null,
-      },
       name: '',
       trouble: '',
       time: '',
       space: '',
       ballSafety: '',
-      transport: ''
+      transport: '',
+      imageUrl: '',
+      file: null,
+      isUploadingImage: false
     }
   },
-  mounted() {
-    this.$root.$on('newMarker', data => {
-      this.position = data;
-    });
+  computed: {
+    position() {
+      return this.$store.state.newMarker;
+    }
   },
   methods: {
     handleForm(event) {
       event.preventDefault();
-      console.log(this.$data);
-    }
+      
+      
+      this.uploadImageFile(this.file, async () => {
+        const {lat, lng} = this.position;
+        const data = {
+          ...this.$data, 
+          position: {
+            lat,
+            lng
+          }};
+        delete data.file;
+        delete data.isUploadingImage;
+
+        try {
+          const res = await axios.post('https://hkwallmap.firebaseio.com/walls.json', data);
+          console.log(res);
+          event.target.reset();
+        } catch(err) {
+          console.error(err)
+        }
+      });
+    },
+    setFile(files) {
+      this.file = files;
+    },
+    uploadImageFile (files, cb) {
+      if (!files.length) {
+        return
+      }
+      const file = files[0]
+
+      if (!file.type.match('image.*')) {
+        alert('Please upload an image.')
+        return;
+      }
+
+      const metadata = {
+        contentType: file.type
+      }
+
+      this.isUploadingImage = true;
+
+      // Create a reference to the destination where we're uploading
+      // the file.
+      const storage = this.$firebase.storage();
+      const imageRef = storage.ref(`images/${file.name}`);
+
+      const uploadTask = imageRef.put(file, metadata).then((snapshot) => {
+        // Once the image is uploaded, obtain the download URL, which
+        // is the publicly accessible URL of the image.
+        return snapshot.ref.getDownloadURL().then((url) => {
+          return url;
+        })
+      }).catch((error) => {
+        console.error('Error uploading image', error);
+      })
+
+      // When the upload ends, set the value of the blog image URL
+      // and signal that uploading is done.
+      uploadTask.then((url) => {
+        this.imageUrl = url;
+        this.isUploadingImage = false;
+        cb();
+      })
+    },
   }
 }
 </script>
