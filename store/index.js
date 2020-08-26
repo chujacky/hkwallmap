@@ -23,12 +23,14 @@ export const actions = {
     return axios.get('https://hkwallmap.firebaseio.com/walls.json')
     .then(res => {
       const wallsArray = [];
-        for (const key in res.data) {
-          wallsArray.push({...res.data[key], id: key});
-        }
-        console.log(wallsArray);
-        vuexContext.commit('setWalls', wallsArray);
-        vuexContext.commit('setActiveMarker', wallsArray[0]);
-      })
+
+      for (const key in res.data) {
+        wallsArray.push({...res.data[key], id: key});
+      }
+
+      const randomIndex = Math.floor(Math.random() * wallsArray.length);
+      vuexContext.commit('setWalls', wallsArray);
+      vuexContext.commit('setActiveMarker', wallsArray[randomIndex]);
+    })
   },
 }
