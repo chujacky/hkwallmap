@@ -6,6 +6,7 @@
             <add-wall-form></add-wall-form>
           </div>
           <div class="column map-container">
+            <search></search>
             <gmap></gmap>
           </div>
         </div>
@@ -16,10 +17,11 @@
 <script>
 import AddWallForm from '../../components/AddWallForm';
 import Gmap from '../../components/Map';
+import Search from '../../components/Search';
 
 export default {
   components: {
-    AddWallForm, Gmap
+    AddWallForm, Gmap, Search
   }
 }
 </script>
