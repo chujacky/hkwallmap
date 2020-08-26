@@ -1,6 +1,7 @@
 <template>
   <Gmap-map :center="center" :zoom="13" :options="mapOptions" style="width: 100%; height: 600px" @click="addMarker">
-    <gmap-info-window :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false">
+    <gmap-info-window :options="infoOptions" :position="infoWindowPos" 
+      :opened="infoWinOpen" @closeclick="infoWinOpen=false" style="padding: 10px;">
     </gmap-info-window>
 
     <template v-if="this.$route.name === 'index'">
@@ -69,7 +70,7 @@ export default {
     },
     toggleInfoWindow(marker, idx) {
       this.infoWindowPos = marker.position;
-      this.infoOptions.content = marker.name;
+      this.infoOptions.content = `<div class="content">${marker.name}</div>`;
       this.$store.commit('setActiveMarker', marker);
       //check if its the same marker that was selected if yes toggle
       if (this.currentMidx == idx) {
@@ -86,5 +87,7 @@ export default {
 </script>
 
 <style>
-
+  .content {
+    padding: 5px;
+  }
 </style>
