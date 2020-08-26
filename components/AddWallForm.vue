@@ -50,6 +50,9 @@
               Choose a file…
             </span>
           </span>
+          <span class="file-name" v-if="files.length">
+            {{files[0].name}}
+          </span>
         </label>
       </div>
     </div>
@@ -75,7 +78,7 @@ export default {
       ballSafety: '',
       transport: '',
       imageUrl: '',
-      file: null,
+      files: [],
       isUploadingImage: false
     }
   },
@@ -97,7 +100,7 @@ export default {
             lat,
             lng
           }};
-        delete data.file;
+        delete data.files;
         delete data.isUploadingImage;
 
         try {
@@ -110,7 +113,7 @@ export default {
       });
     },
     setFile(files) {
-      this.file = files;
+      this.files = files;
     },
     uploadImageFile (files, cb) {
       if (!files.length) {
