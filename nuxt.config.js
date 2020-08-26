@@ -65,6 +65,7 @@ export default {
         }
       }
     },
-    transpile: [/^vue2-google-maps($|\/)/]
+    transpile: [/^vue2-google-maps($|\/)/],
+    extend(config, ctx) {}
   }
 }
