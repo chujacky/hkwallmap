@@ -24,11 +24,11 @@ export default {
     AddWallForm, Gmap, Search,
     head() {
       return {
-        title: 'Add Wall - HKLAXWALLS',
+        title: 'Add Wall',
         meta: [
           {
-            hid: 'add',
-            name: 'add',
+            hid: 'description',
+            name: 'description',
             content: 'Add your favorite walls'
           }
         ]

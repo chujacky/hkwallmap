@@ -26,11 +26,11 @@ export default {
   },
   head() {
       return {
-        title: 'Walls - HKLAXWALLS',
+        title: 'Walls',
         meta: [
           {
-            hid: 'walls',
-            name: 'walls',
+            hid: 'description',
+            name: 'description',
             content: 'All your favorite lacrosse walls in Hong Kong'
           }
         ]
