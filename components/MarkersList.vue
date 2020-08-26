@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     markers() {
-      return this.$store.state.locations.list
+      return this.$store.state.list
     }
   }
 }

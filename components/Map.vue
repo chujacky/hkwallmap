@@ -1,5 +1,5 @@
 <template>
-  <Gmap-map :center="center" :zoom="11" style="width: 100%; height: 600px" @click="addMarker">
+  <Gmap-map :center="center" :zoom="13" :options="mapOptions" style="width: 100%; height: 600px" @click="addMarker">
     <gmap-info-window :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false">
     </gmap-info-window>
 
@@ -26,7 +26,6 @@ export default {
   name: 'gmap',
   data() {
     return {
-      newMarker: {},
       infoWindowPos: null,
       infoWinOpen: false,
       infoOptions: {
@@ -34,29 +33,44 @@ export default {
         pixelOffset: {
           width: 0,
           height: -35
-        }
+        },
       },
-      center: {lat:22.3193, lng:114.1694},
+      mapOptions: {
+        streetViewControl: false,
+      },
     };
   },
   computed: {
     markers() {
-      return this.$store.state.locations.list
+      return this.$store.state.walls;
+    },
+    newMarker() {
+      return this.$store.state.newMarker;
+    },
+    activeMarker() {
+      return this.$store.state.activeMarker;
+    },
+    center() {
+      if (Object.keys(this.newMarker).length) {
+        return this.newMarker;
+      } else if (Object.keys(this.activeMarker.position).length) {
+        return this.activeMarker.position;
+      }
+
+      return {lat:22.3193, lng:114.1694};
     }
   },
   methods: {
     addMarker(event) {
-      this.newMarker = {
+      this.$store.commit('setNewMarker', {
         lat: event.latLng.lat(),
         lng: event.latLng.lng()
-      }
-
-      this.$root.$emit('newMarker', this.newMarker);
+      });
     },
-    toggleInfoWindow: function(marker, idx) {
+    toggleInfoWindow(marker, idx) {
       this.infoWindowPos = marker.position;
       this.infoOptions.content = marker.name;
-      this.$store.commit('locations/setActiveMarker', marker);
+      this.$store.commit('setActiveMarker', marker);
       //check if its the same marker that was selected if yes toggle
       if (this.currentMidx == idx) {
         this.infoWinOpen = !this.infoWinOpen;

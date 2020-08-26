@@ -1,21 +1,26 @@
 <template>
-  <div class="marker-item box" v-if="marker">
+  <div class="marker-item box" v-if="Object.keys(marker).length">
     <h2 class="title is-5">{{marker.name}}</h2>
     <div class="marker-meta">
+      <div class="meta-item">
+        <figure class="image is-3by2">
+          <img :src="marker.imageUrl">
+        </figure>
+      </div>
       <div class="safety-notes meta-item">
-        <p>{{marker.meta.trouble}}</p>
+        <p>{{marker.trouble}}</p>
       </div>
       <div class="time-notes meta-item">
-        <p>{{marker.meta.time}}</p>
+        <p>{{marker.time}}</p>
       </div>
       <div class="space-notes meta-item">
-        <p>{{marker.meta.space}}</p>
+        <p>{{marker.space}}</p>
       </div>
       <div class="ball-safety-notes meta-item">
-        <p>{{marker.meta.ballSafety}}</p>
+        <p>{{marker.ballSafety}}</p>
       </div>
       <div class="transport-notes meta-item">
-        <p>{{marker.meta.transport}}</p>
+        <p>{{marker.transport}}</p>
       </div>
     </div>
   </div>
@@ -26,7 +31,7 @@ export default {
   name: 'marker-item',
   computed: {
     marker() {
-      return this.$store.state.locations.activeMarker;
+      return this.$store.state.activeMarker;
     }
   }
 }
