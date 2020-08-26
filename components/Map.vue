@@ -1,5 +1,5 @@
 <template>
-  <Gmap-map :center="center" :zoom="13" :options="mapOptions" style="width: 100%; height: 600px" @click="addMarker">
+  <Gmap-map :center="center" :zoom="zoom" :options="mapOptions" style="width: 100%; height: 600px" @click="addMarker">
     <gmap-info-window :options="infoOptions" :position="infoWindowPos" 
       :opened="infoWinOpen" @closeclick="infoWinOpen=false" style="padding: 10px;">
     </gmap-info-window>
@@ -52,13 +52,16 @@ export default {
       return this.$store.state.activeMarker;
     },
     center() {
-      if (Object.keys(this.newMarker).length) {
-        return this.newMarker;
-      } else if (Object.keys(this.activeMarker.position).length) {
+      if (this.$route.name === 'index') {
         return this.activeMarker.position;
+      } else if (Object.keys(this.newMarker).length) {
+        return this.newMarker;
       }
 
-      return {lat:22.3193, lng:114.1694};
+      return {lat:22.3293, lng:114.1694};
+    },
+    zoom() {
+      return this.$route.name === 'add' && Object.keys(this.newMarker).length ? 18 : 12;
     }
   },
   methods: {
