@@ -9,10 +9,17 @@
       <input class="input is-small" type="text" v-model="ig">
     </div>
     <div class="field">
-      <input class="input is-small" type="hidden" v-model.number="position.lat" step="any" required>
-    </div>
-    <div class="field">
-      <input class="input is-small" type="hidden" v-model.number="position.lng" step="any" required>
+      <label class="label">Region</label>
+      <div class="control">
+        <div class="select is-small">
+          <select v-model="region">
+            <option disabled>Select dropdown</option>
+            <option value="hk">HK Island</option>
+            <option value="kln">Kowloon</option>
+            <option value="nt">New Territories</option>
+          </select>
+        </div>
+      </div>
     </div>
     <div class="field">
       <label class="label">Name of Wall</label>
@@ -37,6 +44,13 @@
     <div class="field">
       <label class="label">How do you get there?</label>
       <input class="input is-small" type="text" v-model="transportation" required>
+    </div>
+    <div class="field">
+      <label class="label">Wall Characteristics (multiple)</label>
+      <label class="checkbox" v-for="character in characteristics" :key="character.name">
+        <input type="checkbox" v-model="character.isChecked">
+        {{character.name}}
+      </label>
     </div>
     <div class="field">
       <div class="file is-small">
@@ -79,6 +93,41 @@ export default {
       ballSafety: '',
       transportation: '',
       imageUrl: '',
+      region: 'Select dropdown',
+      characteristics: [
+        {
+          name: 'Spacious',
+          isChecked: false,
+        },
+        {
+          name: 'Weekend',
+          isChecked: false,
+        },
+        {
+          name: 'Weekday',
+          isChecked: false,
+        },
+        {
+          name: 'Night',
+          isChecked: false,
+        },
+        {
+          name: 'Daytime',
+          isChecked: false,
+        },
+        {
+          name: 'Short',
+          isChecked: false,
+        },
+        {
+          name: 'Tall',
+          isChecked: false,
+        },
+        {
+          name: 'Easy to lose ball',
+          isChecked: false,
+        },
+      ],
       files: [],
       isUploadingImage: false
     }
@@ -164,5 +213,9 @@ export default {
   .fa-upload {
     color: #666;
     font-size: 13px;
+  }
+
+  .checkbox {
+    margin-right: 15px;
   }
 </style>
