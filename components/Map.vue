@@ -1,25 +1,27 @@
 <template>
-  <Gmap-map :center="center" :zoom="zoom" :options="mapOptions" style="width: 100%; height: 600px" @click="addMarker">
-    <gmap-info-window :options="infoOptions" :position="infoWindowPos" 
-      :opened="infoWinOpen" @closeclick="infoWinOpen=false" style="padding: 10px;">
-    </gmap-info-window>
+  <div class="box">
+    <Gmap-map :center="center" :zoom="zoom" :options="mapOptions" style="width: 100%; height: 600px" @click="addMarker">
+      <gmap-info-window :options="infoOptions" :position="infoWindowPos" 
+        :opened="infoWinOpen" @closeclick="infoWinOpen=false" style="padding: 10px;">
+      </gmap-info-window>
 
-    <template v-if="this.$route.name === 'index'">
-      <gmap-marker
-      v-for="(item, index) in markers"
-      :key="index"
-      :position="item.position"
-      :clickable="true"
-      @click="toggleInfoWindow(item,index)"
-    />
-    </template>
-    <template v-else-if="Object.keys(newMarker).length">
-      <gmap-marker
-        :position="newMarker"
+      <template v-if="this.$route.name === 'index'">
+        <gmap-marker
+        v-for="(item, index) in markers"
+        :key="index"
+        :position="item.position"
         :clickable="true"
+        @click="toggleInfoWindow(item,index)"
       />
-    </template>
-  </Gmap-map>
+      </template>
+      <template v-else-if="Object.keys(newMarker).length">
+        <gmap-marker
+          :position="newMarker"
+          :clickable="true"
+        />
+      </template>
+    </Gmap-map>
+  </div>
 </template>
 
 <script>
