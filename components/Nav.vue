@@ -21,6 +21,14 @@
           Add wall
         </nuxt-link>
       </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a href="https://www.instagram.com/hk_lax_walls/" class="link" target="_blank" rel="noopener noreferrer">
+            <font-awesome-icon :icon="['fab', 'instagram']"/>
+          </a>
+        </div>
+      </div>
     </div>
   </nav>
 </template>
@@ -40,5 +48,9 @@ export default {
 <style>
   a.navbar-item.is-active {
     cursor: default;
+  }
+
+  .fa-instagram {
+    font-size: 25px;
   }
 </style>

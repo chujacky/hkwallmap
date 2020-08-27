@@ -46,6 +46,7 @@
             @change.prevent="setFile($event.target.files)" 
             >
           <span class="file-cta">
+            <span class="file-icon"><font-awesome-icon class="social-icon" :icon="['fas', 'upload']"/></span>
             <span class="file-label">
               Choose a file…
             </span>
@@ -160,5 +161,8 @@ export default {
 </script>
 
 <style>
-
+  .fa-upload {
+    color: #666;
+    font-size: 13px;
+  }
 </style>
