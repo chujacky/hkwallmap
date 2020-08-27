@@ -36,7 +36,7 @@
     </div>
     <div class="field">
       <label class="label">How do you get there?</label>
-      <input class="input is-small" type="text" v-model="transport" required>
+      <input class="input is-small" type="text" v-model="transportation" required>
     </div>
     <div class="field">
       <div class="file is-small">
@@ -77,7 +77,7 @@ export default {
       time: '',
       space: '',
       ballSafety: '',
-      transport: '',
+      transportation: '',
       imageUrl: '',
       files: [],
       isUploadingImage: false

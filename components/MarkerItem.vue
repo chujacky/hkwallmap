@@ -8,19 +8,24 @@
         </figure>
       </div>
       <div class="safety-notes meta-item">
+        <p class="has-text-weight-semibold mb-1">Trouble/Passby</p>
         <p>{{marker.trouble}}</p>
       </div>
       <div class="time-notes meta-item">
+        <p class="has-text-weight-semibold mb-1">Timing</p>
         <p>{{marker.time}}</p>
       </div>
       <div class="space-notes meta-item">
+        <p class="has-text-weight-semibold mb-1">Space</p>
         <p>{{marker.space}}</p>
       </div>
       <div class="ball-safety-notes meta-item">
+        <p class="has-text-weight-semibold mb-1">Chance of losing ball</p>
         <p>{{marker.ballSafety}}</p>
       </div>
-      <div class="transport-notes meta-item">
-        <p>{{marker.transport}}</p>
+      <div class="transportation-notes meta-item">
+        <p class="has-text-weight-semibold mb-1">Transportation</p>
+        <p>{{marker.transportation}}</p>
       </div>
     </div>
   </div>
