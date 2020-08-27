@@ -3,11 +3,11 @@
     <div class="section">
       <div class="container">
         <div class="columns">
-          <div class="column">
-            <marker-item></marker-item>
-          </div>
           <div class="column map-container">
             <gmap></gmap>
+          </div>
+          <div class="column">
+            <marker-item></marker-item>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style>
-* {
+body {
   font-family: 'Helvetica Neue';
 }
 
