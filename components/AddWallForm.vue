@@ -139,10 +139,9 @@ export default {
   },
   methods: {
     handleForm(event) {
-      event.preventDefault();
+      event.preventDefault(); 
       
-      
-      this.uploadImageFile(this.file, async () => {
+      this.uploadImageFile(this.files, async () => {
         const {lat, lng} = this.position;
         const data = {
           ...this.$data, 
@@ -167,7 +166,7 @@ export default {
     },
     uploadImageFile (files, cb) {
       if (!files.length) {
-        return
+        return cb();
       }
       const file = files[0]
 
