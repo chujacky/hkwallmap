@@ -2,7 +2,7 @@
   <div class="marker-item box" v-if="Object.keys(marker).length">
     <h2 class="title is-5">{{marker.name}}</h2>
     <div class="marker-meta">
-      <div class="meta-item">
+      <div class="meta-item image-wraper" v-if="marker.imageUrl">
         <figure class="image is-3by2">
           <img :src="marker.imageUrl">
         </figure>
