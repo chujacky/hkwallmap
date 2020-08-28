@@ -1,12 +1,12 @@
 <template>
   <div class="marker-item box" v-if="Object.keys(marker).length">
-    <h2 class="title is-5">{{marker.name}}</h2>
     <div class="marker-meta">
       <div class="meta-item image-wraper" v-if="marker.imageUrl">
         <figure class="image is-3by2">
           <img :src="marker.imageUrl">
         </figure>
       </div>
+      <h2 class="title is-5 mb-4">{{marker.name}}</h2>
       <div class="safety-notes meta-item">
         <p class="has-text-weight-semibold mb-1">Trouble/Passby</p>
         <p>{{marker.trouble}}</p>
@@ -48,7 +48,18 @@ export default {
     text-align: left;
   }
 
+  .marker-item {
+    position: absolute;
+    top: 15px;
+    right: 55px;
+    width: 25%;
+    z-index: 10;
+    bottom: 15px;
+    overflow: scroll;
+  }
+
   p {
-    font-size: 13px;;
+    font-size: 12px;
+    line-height: 1.3;
   }
 </style>
