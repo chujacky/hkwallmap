@@ -2,7 +2,8 @@
   <nav class="navbar is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <nuxt-link to="/" class="navbar-item">
-        <h2 class="title">hklaxwalls</h2>
+        <!-- <h2 class="title">hklaxwalls</h2> -->
+        <img src="/hklaxwall-02.png" alt="">
       </nuxt-link>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="toggleMenu">
