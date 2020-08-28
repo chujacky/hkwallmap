@@ -1,13 +1,10 @@
 <template>
   <section class="hero">
-    <div class="map-container">
-      <!-- <div class="columns"> -->
-        <!-- <div class="column map-container"> -->
+    <div class="content">   
+      <div class="map-container">
         <gmap></gmap>
-        <!-- </div> -->
-        <!-- <div class="column"> -->
-        <marker-item></marker-item>
-        <!-- </div> -->
+      </div>
+      <marker-item></marker-item>
     </div>
   </section>
 </template>
@@ -37,11 +34,8 @@ export default {
 </script>
 
 <style>
-body {
-  font-family: 'Helvetica Neue';
-}
-
-.container {
+.content {
+  position: relative;
   margin: 0 auto;
   text-align: left;
   width: 100%;
@@ -54,6 +48,13 @@ body {
 
 .map-container {
   position: relative;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 50%;
+  }
 }
 
 .links {

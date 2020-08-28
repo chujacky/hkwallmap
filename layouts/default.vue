@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="root">
     <nav-bar></nav-bar>
     <Nuxt />
     <page-footer></page-footer>
@@ -36,6 +36,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+html, body, #__nuxt, #__layout, #root, section {
+  font-family: 'Helvetica Neue';
+  height: 100%;
 }
 
 *,

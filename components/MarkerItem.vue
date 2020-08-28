@@ -48,23 +48,17 @@ export default {
     text-align: left;
   }
 
-  .marker-item {
-    position: absolute;
-    top: 15px;
-    right: 55px;
-    width: 25%;
-    z-index: 10;
-    bottom: 15px;
-    overflow: scroll;
-  }
+ 
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     .marker-item {
-      top: 50%;
-      width: auto;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      position: absolute;
+      top: 15px;
+      right: 55px;
+      width: 25%;
+      z-index: 10;
+      bottom: 15px;
+      overflow: scroll;
     }
   }
 
