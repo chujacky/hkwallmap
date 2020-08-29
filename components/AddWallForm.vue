@@ -207,14 +207,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .fa-upload {
-    color: #666;
-    font-size: 13px;
-  }
-
-  .checkbox {
-    margin-right: 15px;
-  }
-</style>

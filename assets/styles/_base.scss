@@ -1,0 +1,31 @@
+@charset "utf-8";
+$font-family: 'Helvetica Neue';
+$footer-padding: 40px;
+
+@import "~/node_modules/bulma/sass/utilities/_all.sass";
+@import "~/node_modules/bulma/sass/base/_all.sass"; 
+@import "~/node_modules/bulma/sass/form/_all.sass";
+@import "~/node_modules/bulma/sass/components/navbar.sass";
+@import "~/node_modules/bulma/sass/layout/hero.sass";
+@import "~/node_modules/bulma/sass/layout/section.sass";
+@import "~/node_modules/bulma/sass/layout/footer.sass";
+
+html, body, #__nuxt, #__layout, #root {
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.social-icon {
+  font-size: 18px;
+  color: #333;
+
+  &:hover {
+    color: #888;
+  }
+}

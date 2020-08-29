@@ -17,18 +17,3 @@ export default {
   name: 'page-footer'
 }
 </script>
-
-<style>
-  .footer {
-    padding: 40px;
-  }
-
-  .social-icon {
-    font-size: 18px;
-    color: #333;
-  }
-
-  .social-icon:hover {
-    color: #888;
-  }
-</style>
