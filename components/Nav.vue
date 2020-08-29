@@ -4,28 +4,29 @@
       <nuxt-link to="/" class="navbar-item">
         <img src="/hklaxwall-04.png" alt="">
       </nuxt-link>
-
+<!-- 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="toggleMenu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
-      </a>
+      </a> -->
     </div>
 
     <div class="navbar-menu">
-      <div class="navbar-start">
+      <!-- <div class="navbar-start">
         <nuxt-link to="/" class="navbar-item">
           Walls
         </nuxt-link>
         <nuxt-link to="/add" class="navbar-item">
           Add wall
         </nuxt-link>
-      </div>
+      </div> -->
 
       <div class="navbar-end">
         <div class="navbar-item">
           <a href="https://www.instagram.com/hk_lax_walls/" class="social-icon" target="_blank" rel="noopener noreferrer">
-            <font-awesome-icon :icon="['fab', 'instagram']"/>
+            <span>ADD WALL!</span>
+            <font-awesome-icon :icon="['fas', 'plus']"/>
           </a>
         </div>
       </div>

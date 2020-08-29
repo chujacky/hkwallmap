@@ -25,6 +25,10 @@ html, body, #__nuxt, #__layout, #root {
   font-size: 18px;
   color: #333;
 
+  span {
+    font-size: 12px;
+  }
+
   &:hover {
     color: #888;
   }
