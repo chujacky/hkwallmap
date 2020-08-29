@@ -28,6 +28,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~assets/styles/main.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -51,6 +52,7 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
+    '@nuxtjs/style-resources',
     ['nuxt-fontawesome', {
       imports: [
         {
@@ -64,6 +66,9 @@ export default {
       ]
     }]
   ],
+  styleResources: {
+    scss: ['./assets/styles/*.scss']
+  },
   env: {
     VUE_APP_GOOGLE_MAPS_API_KEY: process.env.VUE_APP_GOOGLE_MAPS_API_KEY
   },
