@@ -1,0 +1,15 @@
+.navbar {
+  border-bottom: 1px solid #CCC;
+
+  .navbar-brand {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    .nav-add {
+      padding: 8px;
+      margin-left: auto;
+      color: #000;
+    }
+  }
+}
