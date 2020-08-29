@@ -48,7 +48,8 @@ export default {
       },
       mapOptions: {
         streetViewControl: false,
-        styles: styles.muted
+        styles: styles.muted,
+        minZoom: 8
       },
     };
   },
@@ -72,7 +73,7 @@ export default {
       return {lat:22.3293, lng:114.1694};
     },
     zoom() {
-      return this.$route.name === 'add' && Object.keys(this.newMarker).length ? 18 : 12;
+      return this.$route.name === 'add' && Object.keys(this.newMarker).length ? 16 : 12;
     }
   },
   methods: {

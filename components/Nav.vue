@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <nuxt-link to="/" class="navbar-item">
         <img src="/hklaxwall-04.png" alt="">
