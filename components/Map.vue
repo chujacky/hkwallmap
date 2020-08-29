@@ -43,8 +43,6 @@ export default {
       },
       icon: {
         url: '/p-08.png',
-        size: {width: 23, height: 23, f: 'px', b: 'px'},
-        scaledSize: {width: 23, height: 23, f: 'px', b: 'px'}
       },
       mapOptions: {
         streetViewControl: false,
