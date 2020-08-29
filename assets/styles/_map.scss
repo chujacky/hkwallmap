@@ -1,0 +1,9 @@
+.walls-section {
+  height: calc(100% - 52px);
+  position: relative;
+
+  .map-wrapper,
+  .map-container {
+    height: 100%;
+  }
+}

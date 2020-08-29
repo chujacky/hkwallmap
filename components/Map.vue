@@ -11,7 +11,7 @@
       :position="item.position"
       :icon="icon"
       :clickable="true"
-      @click="toggleInfoWindow(item,index)"
+      @click="setActiveMarker(item,index)"
     />
     </template>
     <template v-else-if="Object.keys(newMarker).length">
@@ -82,19 +82,9 @@ export default {
         lng: event.latLng.lng()
       });
     },
-    toggleInfoWindow(marker, idx) {
-      this.infoWindowPos = marker.position;
-      this.infoOptions.content = `<div class="content">${marker.name}</div>`;
+    setActiveMarker(marker, idx) {
       this.$store.commit('setActiveMarker', marker);
-      //check if its the same marker that was selected if yes toggle
-      if (this.currentMidx == idx) {
-        this.infoWinOpen = !this.infoWinOpen;
-      }
-      //if different marker set infowindow to open and reset current marker index
-      else {
-        this.infoWinOpen = true;
-        this.currentMidx = idx;
-      }
+      this.$root.$emit('open');
     }
   },
 }

@@ -1,6 +1,9 @@
 <template>
-  <div class="marker-item box" v-if="Object.keys(marker).length">
-    <div class="marker-meta">
+  <div class="marker-meta-wrapper box" v-if="Object.keys(marker).length">
+    <div class="marker-content">
+      <font-awesome-icon :icon="['fas', 'times']" @click="close"/>
+      <div class="marker-meta">
+    </div>
       <div class="meta-item image-wraper" v-if="marker.imageUrl">
         <figure class="image is-3by2">
           <img :src="marker.imageUrl">
@@ -27,7 +30,7 @@
         <p class="has-text-weight-semibold mb-1">Transportation</p>
         <p>{{marker.transportation}}</p>
       </div>
-    </div>
+    </div> 
   </div>
 </template>
 
@@ -38,32 +41,19 @@ export default {
     marker() {
       return this.$store.state.activeMarker;
     }
-  }
+  },
+  methods: {
+    open() {
+      this.$el.classList.add('active');
+    },
+    close() {
+      this.$el.classList.remove('active');
+    }
+  },
+  mounted() {
+    this.$root.$on('open', () => {
+      this.open();
+    });
+  },
 }
 </script>
-
-<style>
-  .meta-item {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-
- 
-
-  @media (min-width: 768px) {
-    .marker-item {
-      position: absolute;
-      top: 15px;
-      right: 55px;
-      width: 25%;
-      z-index: 10;
-      bottom: 15px;
-      overflow: scroll;
-    }
-  }
-
-  p {
-    font-size: 12px;
-    line-height: 1.3;
-  }
-</style>

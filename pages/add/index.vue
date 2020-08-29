@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section add-wall-container">
     <div class="container">
       <div class="columns">
           <div class="column map-container">
@@ -37,13 +37,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .columns {
-    width: 100%;
-  }
-
-  .map-container {
-    min-width: 70%;
-  }
-</style>
