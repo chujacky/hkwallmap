@@ -1,6 +1,6 @@
 @charset "utf-8";
 $font-family: 'Helvetica Neue';
-$footer-padding: 40px;
+$footer-padding: 20px;
 
 @import "~/node_modules/bulma/sass/utilities/_all.sass";
 @import "~/node_modules/bulma/sass/base/_all.sass"; 
@@ -32,4 +32,12 @@ html, body, #__nuxt, #__layout, #root {
   &:hover {
     color: #888;
   }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 12px;
 }
