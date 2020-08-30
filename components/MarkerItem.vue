@@ -1,10 +1,14 @@
 <template>
   <transition name="fade">
-    <div class="marker-meta-wrapper box" :key="isDesktop ? marker.id : 1" v-touch:swipe.bottom="close">
-      <div class="marker-content">
-        <font-awesome-icon :icon="['fas', 'times']" @click="close"/>
-        <div class="marker-meta">
+    <div class="marker-meta-wrapper box" :key="marker.id" 
+      v-touch:swipe.up="open"
+      v-touch:swipe.bottom="close"
+    >
+      <div class="mobile-swipe">
+        <div class="swipe-line"></div>
+        <p class="swipe-remark">Swipe up for more info</p>
       </div>
+      <div class="marker-meta">
         <div class="meta-item image-wraper" v-if="marker.imageUrl">
           <figure class="image is-3by2">
             <img :src="marker.imageUrl">
@@ -56,16 +60,6 @@ export default {
     close() {
       this.$el.classList.remove('active');
     }
-  },
-  mounted() {
-    this.$root.$on('open', () => {
-      if (this.isDesktop) {
-        return;
-      }
-      this.open();
-    });
-
-    this.isDesktop = window.innerWidth > 768;
   },
 }
 </script>
