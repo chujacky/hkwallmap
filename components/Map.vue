@@ -64,6 +64,10 @@ export default {
       return this.$store.state.activeMarker;
     },
     center() {
+      if (Object.keys(this.newMarker).length) {
+        return this.newMarker;
+      }
+
       return {lat:22.3293, lng:114.1694};
     },
     zoom() {
