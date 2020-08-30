@@ -9,6 +9,10 @@
       <input class="input is-small" type="text" v-model="ig">
     </div>
     <div class="field">
+      <label class="label">Name of Wall</label>
+      <input class="input is-small" type="text" v-model="name" requried>
+    </div>
+    <div class="field">
       <label class="label">Region</label>
       <div class="control">
         <div class="select is-small">
@@ -21,11 +25,14 @@
         </div>
       </div>
     </div>
-    <div class="field">
-      <label class="label">Name of Wall</label>
-      <input class="input is-small" type="text" v-model="name" requried>
+    <div class="field" v-for="meta in metas" :key="meta.slug">
+      <label class="label">{{meta.label}}</label>
+      <label class="checkbox" v-for="choice in meta.choices" :key="choice">
+        <input type="checkbox">
+        {{choice}}
+      </label>
     </div>
-    <div class="field">
+    <!-- <div class="field">
       <label class="label">What are the chances of getting into trouble?</label>
       <textarea class="textarea is-small" v-model="trouble" required></textarea>
     </div>
@@ -51,7 +58,7 @@
         <input type="checkbox" v-model="character.isChecked">
         {{character.name}}
       </label>
-    </div>
+    </div> -->
     <div class="field">
       <div class="file is-small">
         <label class="file-label">
@@ -94,6 +101,29 @@ export default {
       transportation: '',
       imageUrl: '',
       region: 'Select dropdown',
+      metas: [
+        {
+          'label': 'Trouble/Passer-by',
+          'slug': 'trouble',
+          'choices': [
+            'None', 'Little', 'Fair', 'A lot'
+          ]
+        },
+        {
+          'label': 'Timing',
+          'slug': 'timing',
+          'choices': [
+            'Weekday', 'Weekend', 'Morning', 'Afternoon', 'Evening'
+          ]
+        },
+        {
+          'label': 'Space',
+          'slug': 'space',
+          'choices': [
+            'Little', 'Fair', 'Spacious'
+          ]
+        },
+      ],
       characteristics: [
         {
           name: 'Spacious',

@@ -1,17 +1,15 @@
 <template>
-  <div class="section add-wall-container">
-    <div class="container">
-      <div class="columns">
-          <div class="column map-container">
-            <search></search>
-            <gmap></gmap>
-          </div>
-          <div class="column">
-            <add-wall-form></add-wall-form>
-          </div>
-        </div>
+  <section class="add-wall-section">
+    <div class="map-container active">
+      <search></search>
+      <div class="map-wrapper">
+        <gmap></gmap>
+      </div>
     </div>
-  </div>
+    <div class="form-container container">
+      <add-wall-form></add-wall-form>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -22,6 +20,20 @@ import Search from '../../components/Search';
 export default {
   components: {
     AddWallForm, Gmap, Search,
+  },
+  methods: {
+    openForm() {
+      this.$el.querySelector('.form-container').classList.add('active');
+      this.$el.querySelector('.map-container').classList.remove('active');
+    },
+    closeForm() {
+      this.$el.querySelector('.form-container').classList.remove('active');
+      this.$el.querySelector('.map-container').classList.add('active');
+    }
+  },
+  mounted() {
+    this.$root.$on('open-form', this.openForm);
+    this.$root.$on('close-form', this.closeForm);
   },
   head() {
     return {

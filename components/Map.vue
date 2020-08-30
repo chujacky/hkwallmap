@@ -47,7 +47,9 @@ export default {
       mapOptions: {
         streetViewControl: false,
         styles: styles.muted,
-        minZoom: 8
+        minZoom: 8,
+        disableDefaultUI: true,
+        zoomControl: true
       },
     };
   },

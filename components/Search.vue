@@ -1,11 +1,12 @@
 <template>
-  <div class="field">
+  <div class="field address-search">
     <label class="label">Search address or drop the marker on the map</label>
     <gmap-autocomplete
       class="input is-small"
       placeholder="Type address..."
       @place_changed="setPlace">
     </gmap-autocomplete>
+    <button class="button is-light is-small" @click="onNextPage">Next</button>
   </div>
 </template>
 
@@ -25,6 +26,18 @@ export default {
         lat: this.address.geometry.location.lat(),
         lng: this.address.geometry.location.lng(),
       });
+    },
+    onNextPage() {
+      if (!Object.keys(this.position).length) {
+        return alert('Please add a marker before moving forward.');
+      } 
+
+      this.$root.$emit('open-form');
+    },
+  },
+  computed: {
+    position() {
+      return this.$store.state.newMarker;
     }
   }
 }

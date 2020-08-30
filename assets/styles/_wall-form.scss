@@ -1,11 +1,43 @@
+.add-wall-section {
+  height: calc(100% - 91px);
 
-form {
-  .fa-upload {
-    color: #666;
-    font-size: 13px;
+  .map-container {
+    height: 100%;  
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    .address-search {
+      padding: 15px;
+      margin-bottom: 0;
+    }
+
+    .map-wrapper {
+      height: calc(100% - 82px);
+    }
   }
-  
-  .checkbox {
-    margin-right: 15px;
+
+  .form-container {
+    display: none;
+    padding: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+
+    &.active {
+      display: block;
+    }
+
+    form {
+      .fa-upload {
+        color: #666;
+        font-size: 13px;
+      }
+      
+      .checkbox {
+        margin-right: 15px;
+      }
+    }
   }
 }
