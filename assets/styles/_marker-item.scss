@@ -8,6 +8,16 @@
   bottom: 20px;
   overflow: scroll;
 
+  &.fade-enter-active,
+  &.fade-leave-active {
+    transition: opacity 1s;
+  }
+
+  &.fade-enter,
+  &.fade-leave-to {
+    opacity: 0
+  }
+
   .marker-content {
     position: relative;
   
@@ -28,15 +38,20 @@
   }
 
   @media (max-width: 768px) {
-    display: none;
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    right: 100%;
+    transition: right 1s;
 
     &.active {
       display: block;
-      top: 0;
-      width: auto;
-      bottom: 0;
-      left: 0;
       right: 0;
+    }
+
+    &.fade-enter-active,
+    &.fade-leave-active {
+      transition: opacity 0s;
     }
 
     .marker-content {
