@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="marker-meta-wrapper box" :key="isDesktop ? marker.id : 1">
+    <div class="marker-meta-wrapper box" :key="isDesktop ? marker.id : 1" v-touch:swipe.bottom="close">
       <div class="marker-content">
         <font-awesome-icon :icon="['fas', 'times']" @click="close"/>
         <div class="marker-meta">
