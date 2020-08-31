@@ -1,85 +1,67 @@
 <template>
   <form @submit="handleForm">
-    <div class="field">
-      <label class="label">Player Name</label>
-      <input class="input is-small" type="text" v-model="player">
-    </div>
-    <div class="field">
-      <label class="label">Instagram ID</label>
-      <input class="input is-small" type="text" v-model="ig">
-    </div>
-    <div class="field">
-      <label class="label">Name of Wall</label>
-      <input class="input is-small" type="text" v-model="name" requried>
-    </div>
-    <div class="field">
-      <label class="label">Region</label>
-      <div class="control">
-        <div class="select is-small">
-          <select v-model="region">
-            <option disabled>Select dropdown</option>
-            <option value="hk">HK Island</option>
-            <option value="kln">Kowloon</option>
-            <option value="nt">New Territories</option>
-          </select>
+    <div class="map-details-wrapper">
+      <div class="field">
+        <label class="label">Name of Wall</label>
+        <input class="input is-small" type="text" v-model="name" requried>
+      </div>
+      <div class="field">
+        <label class="label">Region</label>
+        <div class="control">
+          <div class="select is-small">
+            <select v-model="region">
+              <option disabled>Select dropdown</option>
+              <option value="hk">HK Island</option>
+              <option value="kln">Kowloon</option>
+              <option value="nt">New Territories</option>
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="field" v-for="meta in metas" :key="meta.slug">
-      <label class="label">{{meta.label}}</label>
-      <label class="checkbox" v-for="choice in meta.choices" :key="choice">
-        <input type="checkbox">
-        {{choice}}
-      </label>
-    </div>
-    <!-- <div class="field">
-      <label class="label">What are the chances of getting into trouble?</label>
-      <textarea class="textarea is-small" v-model="trouble" required></textarea>
-    </div>
-    <div class="field">
-      <label class="label">When is the best time to use the wall?</label>
-      <input class="input is-small" type="text" v-model="time" required>
-    </div>
-    <div class="field">
-      <label class="label">Is the wall spacious?</label>
-      <input class="input is-small" type="text" v-model="space" required>
-    </div>
-    <div class="field">
-      <label class="label">What are the chances of losing the ball?</label>
-      <input class="input is-small" type="text" v-model="ballSafety" required>
-    </div>
-    <div class="field">
-      <label class="label">How do you get there?</label>
-      <input class="input is-small" type="text" v-model="transportation" required>
-    </div>
-    <div class="field">
-      <label class="label">Wall Characteristics (multiple)</label>
-      <label class="checkbox" v-for="character in characteristics" :key="character.name">
-        <input type="checkbox" v-model="character.isChecked">
-        {{character.name}}
-      </label>
-    </div> -->
-    <div class="field">
-      <div class="file is-small">
-        <label class="file-label">
-          <input class="file-input" type="file" ref="imageFile" 
-            accept="image/png, image/jpeg"
-            @change.prevent="setFile($event.target.files)" 
-            >
-          <span class="file-cta">
-            <span class="file-icon"><font-awesome-icon class="social-icon" :icon="['fas', 'upload']"/></span>
-            <span class="file-label">
-              Choose a file…
-            </span>
-          </span>
-          <span class="file-name" v-if="files.length">
-            {{files[0].name}}
-          </span>
-        </label>
+      <div class="field" v-for="meta in metas" :key="meta.slug">
+        <label class="label">{{meta.label}}</label>
+        <div class="checkbox-wrapper">
+          <template v-for="choice in meta.choices">
+            <input type="checkbox" :id="choice" :key="choice">
+            <label class="checkbox" :for="choice" :key="choice" >
+              {{choice}}
+            </label>
+          </template>
+        </div>
       </div>
+      <div class="field">
+        <div class="file is-small">
+          <label class="file-label">
+            <input class="file-input" type="file" ref="imageFile" 
+              accept="image/png, image/jpeg"
+              @change.prevent="setFile($event.target.files)" 
+              >
+            <span class="file-cta">
+              <span class="file-icon"><font-awesome-icon class="social-icon" :icon="['fas', 'upload']"/></span>
+              <span class="file-label">
+                Choose a file…
+              </span>
+            </span>
+            <span class="file-name" v-if="files.length">
+              {{files[0].name}}
+            </span>
+          </label>
+        </div>
+      </div>
+      <input type="button" value="next" class="button is-small">
     </div>
-    <div class="control">
+    <div class="personal-details-wrapper">
+      <div class="field">
+      <label class="label">Player Name</label>
+      <input class="input is-small" type="text" v-model="player">
+      </div>
+      <div class="field">
+      <label class="label">Instagram ID</label>
+      <input class="input is-small" type="text" v-model="ig">
+      </div>
+      <div class="control">
       <button class="button is-link">Submit</button>
+      </div>
     </div>
   </form>
 </template>

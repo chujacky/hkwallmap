@@ -1,42 +1,78 @@
 .add-wall-section {
-  height: calc(100% - 91px);
+  height: calc(100% - 100px);
+
+  .add-wall-container {
+    display: flex;
+    height: 100%;
+  }
 
   .map-container {
     height: 100%;  
-    display: none;
+    flex-basis: 50%;
 
     &.active {
       display: block;
     }
 
     .address-search {
-      padding: 15px;
-      margin-bottom: 0;
+      display: flex;
+      margin-bottom: 10px;
+
+      .input {
+        margin-right: 10px;
+        flex-grow: 1;
+      }
     }
 
     .map-wrapper {
-      height: calc(100% - 82px);
+      height: 100%;
     }
   }
 
   .form-container {
-    display: none;
+    flex-basis: 50%;
     padding: 15px;
-    max-width: 500px;
     margin: 0 auto;
 
-    &.active {
-      display: block;
+    .label,
+    .input,
+    .checkbox {
+      font-size: 12px;
     }
 
     form {
+      .personal-details-wrapper {
+        display: none;
+      }
+
+
+      .checkbox-wrapper {
+        input[type=checkbox] {
+          display: none;
+        }
+  
+        .checkbox {
+          margin-right: 15px;
+          padding: 5px 10px;
+          border-radius: 5.5px;;
+          border: 1px solid #CCC;
+          color: #CCC;
+
+          &:hover {
+            border-color: #000;
+            color: #000;
+          }
+        }
+ 
+        input[type=checkbox]:checked + .checkbox {
+          border-color: #000;
+          color: #000;
+        }  
+      }
+
       .fa-upload {
         color: #666;
         font-size: 13px;
-      }
-      
-      .checkbox {
-        margin-right: 15px;
       }
     }
   }

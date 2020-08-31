@@ -4,30 +4,31 @@
       <div class="marker-content">
         <font-awesome-icon :icon="['fas', 'times']" @click="close"/>
         <div class="marker-meta">
-        <div class="meta-item image-wraper" v-if="marker.imageUrl">
-          <figure class="image is-3by2">
-            <img :src="marker.imageUrl">
+        <div class="meta-item image-wraper">
+          <figure class="image is-16by9">
+            <img :src="marker.imageUrl" v-if="marker.imageUrl">
+            <img class="add-button" src="/placeholder.png" v-else>
           </figure>
         </div>
         <h2 class="title is-5 mb-4">{{marker.name}}</h2>
         <div class="safety-notes meta-item">
-          <p class="has-text-weight-semibold mb-1">Trouble/Passby</p>
+          <p class="has-text-weight-semibold meta-title mb-1">Trouble/Passby</p>
           <p>{{marker.trouble}}</p>
         </div>
         <div class="time-notes meta-item">
-          <p class="has-text-weight-semibold mb-1">Timing</p>
+          <p class="has-text-weight-semibold meta-title mb-1">Timing</p>
           <p>{{marker.time}}</p>
         </div>
         <div class="space-notes meta-item">
-          <p class="has-text-weight-semibold mb-1">Space</p>
+          <p class="has-text-weight-semibold meta-title mb-1">Space</p>
           <p>{{marker.space}}</p>
         </div>
         <div class="ball-safety-notes meta-item">
-          <p class="has-text-weight-semibold mb-1">Chance of losing ball</p>
+          <p class="has-text-weight-semibold meta-title mb-1">Chance of losing ball</p>
           <p>{{marker.ballSafety}}</p>
         </div>
         <div class="transportation-notes meta-item">
-          <p class="has-text-weight-semibold mb-1">Transportation</p>
+          <p class="has-text-weight-semibold meta-title mb-1">Transportation</p>
           <p>{{marker.transportation}}</p>
         </div>
       </div> 

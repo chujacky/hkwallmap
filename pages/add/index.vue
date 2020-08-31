@@ -1,13 +1,15 @@
 <template>
   <section class="add-wall-section">
-    <div class="map-container active">
-      <search></search>
-      <div class="map-wrapper">
-        <gmap></gmap>
+    <div class="add-wall-container"> 
+      <div class="map-container active">
+        <div class="map-wrapper">
+          <gmap></gmap>
+        </div>
       </div>
-    </div>
-    <div class="form-container container">
-      <add-wall-form></add-wall-form>
+      <div class="form-container">
+        <search></search>
+        <add-wall-form></add-wall-form>
+      </div>
     </div>
   </section>
 </template>

@@ -1,12 +1,12 @@
 <template>
   <div class="field address-search">
-    <label class="label">Search address or drop the marker on the map</label>
+    <label class="label">Wall Address</label>
     <gmap-autocomplete
       class="input is-small"
-      placeholder="Type address..."
+      placeholder="Search address or drop the marker on the map"
       @place_changed="setPlace">
     </gmap-autocomplete>
-    <button class="button is-light is-small" @click="onNextPage">Next</button>
+    <!-- <button class="button is-light is-small" @click="onNextPage">Next</button> -->
   </div>
 </template>
 
@@ -42,9 +42,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  input {
-    width: 50%;
-  }
-</style>
