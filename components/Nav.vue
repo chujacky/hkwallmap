@@ -2,12 +2,13 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <nuxt-link to="/" class="navbar-item">
-        <img src="/hklaxwall-04.png" alt="">
+        <img src="/logo.png" alt="">
       </nuxt-link>
 
+      
        <nuxt-link to='/add' class="nav-add">
           <span>ADD WALL!</span>
-          <font-awesome-icon :icon="['fas', 'plus']"/>
+          <img src="/addButton.png" alt="placeholder">
        </nuxt-link>
     </div>
   </nav>
