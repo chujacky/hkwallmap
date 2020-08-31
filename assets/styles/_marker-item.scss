@@ -18,19 +18,12 @@
     opacity: 0
   }
 
-  .mobile-swipe {
-    text-align: center;
-
-    .swipe-line {
-      margin: 0 auto;
-      width: 120px; 
-      border-top: 3px solid #888;
-      margin-bottom: 5px;
-    }
-
-    .swipe-remark {
-      margin-bottom: 5px;
-      color: #000;
+  .marker-content {
+    position: relative;
+  
+    .fa-times {
+      display: none;
+      font-size: 20px;;
     }
   }
 
@@ -45,7 +38,7 @@
   }
 
   @media (max-width: 768px) {
-    top: 50%;
+    top: 100%;
     width: auto;
     height: 50%;
     left: 0;
@@ -56,7 +49,12 @@
       top: 0;
       height: 100%;
     }
-    
+
+    &.fade-enter-active,
+    &.fade-leave-active {
+      transition: opacity 0s;
+    }
+
     .marker-content {
       padding: 50px 15px;
 
