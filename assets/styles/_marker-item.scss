@@ -6,7 +6,7 @@
   width: 25%;
   z-index: 10;
   bottom: 20px;
-  overflow: hidden;
+  overflow-y: hidden;
 
   &.fade-enter-active,
   &.fade-leave-active {
@@ -38,21 +38,17 @@
   }
 
   @media (max-width: 768px) {
+    position: fixed;
+    bottom: 39px;
     top: 100%;
     width: auto;
-    height: 50%;
+    height: 100%;
     left: 0;
     right: 0;
     transition: top 1s;
 
     &.active {
-      top: 0;
-      height: 100%;
-    }
-
-    &.fade-enter-active,
-    &.fade-leave-active {
-      transition: opacity 0s;
+      top: 52px;
     }
 
     .marker-content {

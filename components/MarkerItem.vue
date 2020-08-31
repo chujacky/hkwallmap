@@ -4,7 +4,6 @@
       <div class="marker-content">
         <font-awesome-icon :icon="['fas', 'times']" @click="close"/>
         <div class="marker-meta">
-      </div>
         <div class="meta-item image-wraper" v-if="marker.imageUrl">
           <figure class="image is-3by2">
             <img :src="marker.imageUrl">
@@ -32,6 +31,7 @@
           <p>{{marker.transportation}}</p>
         </div>
       </div> 
+      </div>
   </div>
   </transition>
 </template>
