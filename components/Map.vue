@@ -42,7 +42,7 @@ export default {
         },
       },
       icon: {
-        url: '/p-08.png',
+        url: '/marker.svg',
       },
       mapOptions: {
         streetViewControl: false,
