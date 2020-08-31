@@ -6,7 +6,7 @@
   width: 25%;
   z-index: 10;
   bottom: 20px;
-  overflow-y: hidden;
+  overflow: auto;
 
   &.fade-enter-active,
   &.fade-leave-active {
@@ -35,6 +35,10 @@
   .meta-item {
     margin-bottom: 10px;
     text-align: left;
+
+    .meta-title {
+      color: #000;
+    }
   }
 
   @media (max-width: 768px) {
@@ -42,7 +46,6 @@
     bottom: 39px;
     top: 100%;
     width: auto;
-    height: 100%;
     left: 0;
     right: 0;
     transition: top 1s;
@@ -52,13 +55,13 @@
     }
 
     .marker-content {
-      padding: 50px 15px;
+      padding: 40px 20px 20px;
 
       .fa-times {
         display: block;
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 0px;
+        right: 0px;
       }
     }
   }
