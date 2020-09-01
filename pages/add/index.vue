@@ -7,7 +7,6 @@
         </div>
       </div>
       <div class="form-container">
-        <search></search>
         <add-wall-form></add-wall-form>
       </div>
     </div>
@@ -17,11 +16,10 @@
 <script>
 import AddWallForm from '../../components/AddWallForm';
 import Gmap from '../../components/Map';
-import Search from '../../components/Search';
 
 export default {
   components: {
-    AddWallForm, Gmap, Search,
+    AddWallForm, Gmap
   },
   methods: {
     openForm() {
