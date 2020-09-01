@@ -24,9 +24,7 @@
 </template>
 
 <script>
-import styles from '~/static/mapStyles.json'
-
-
+import styles from '~/static/mapStyles.json';
 
 export default {
   name: 'gmap',
