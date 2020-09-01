@@ -41,13 +41,37 @@
     }
 
     form {
-      .personal-details-wrapper {
+      .personal-details-wrapper,
+      .map-details-wrapper {
         display: none;
+
+        &.active {
+          display: block;
+        }
       }
 
+      .next-button,
+      .submit-button,
+      .back-button {
+        background-color: #333;
+        color: #FFF;
+        border-color: #333;
+        border-radius: 10px;
+        margin-top: 7px;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      .back-button {
+        background-color: #FFF;
+        color: #333;
+      }
 
       .checkbox-wrapper {
-        input[type=checkbox] {
+        input[type=checkbox],
+        input[type=radio] {
           display: none;
         }
   
@@ -64,7 +88,8 @@
           }
         }
  
-        input[type=checkbox]:checked + .checkbox {
+        input[type=checkbox]:checked + .checkbox,
+        input[type=radio]:checked + .checkbox {
           border-color: #000;
           color: #000;
         }  

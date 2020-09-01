@@ -1,9 +1,12 @@
 <template>
   <form @submit="handleForm">
-    <div class="map-details-wrapper">
+    <div class="map-details-wrapper active">
+      <div class="field">
+        <search></search>
+      </div>
       <div class="field">
         <label class="label">Name of Wall</label>
-        <input class="input is-small" type="text" v-model="name" requried>
+        <input class="input is-small" type="text" v-model="name" requried />
       </div>
       <div class="field">
         <label class="label">Region</label>
@@ -18,131 +21,303 @@
           </div>
         </div>
       </div>
-      <div class="field" v-for="meta in metas" :key="meta.slug">
-        <label class="label">{{meta.label}}</label>
+      <div class="field">
+        <label class="label">Trouble/Passer-by</label>
         <div class="checkbox-wrapper">
-          <template v-for="choice in meta.choices">
-            <input type="checkbox" :id="choice" :key="choice">
-            <label class="checkbox" :for="choice" :key="choice" >
-              {{choice}}
-            </label>
-          </template>
+          <input
+            id="troubleNone"
+            name="Trouble/Passer-by"
+            type="radio"
+            class="choice"
+            value="none"
+            v-model="trouble"
+          />
+          <label for="troubleNone" class="checkbox">
+            None </label
+          ><input
+            id="troubleLittle"
+            name="Trouble/Passer-by"
+            type="radio"
+            class="choice"
+            value="little"
+            v-model="trouble"
+          />
+          <label for="troubleLittle" class="checkbox">
+            Little </label
+          ><input
+            id="troubleFair"
+            name="Trouble/Passer-by"
+            type="radio"
+            class="choice"
+            value="fair"
+            v-model="trouble"
+          />
+          <label for="troubleFair" class="checkbox">
+            Fair </label
+          ><input
+            id="troubleAlot"
+            name="Trouble/Passer-by"
+            type="radio"
+            class="choice"
+            value="alot"
+            v-model="trouble"
+          />
+          <label for="troubleAlot" class="checkbox">
+            A lot
+          </label>
         </div>
       </div>
       <div class="field">
+        <label class="label">Timing (Select all applicable)</label>
+        <div class="checkbox-wrapper">
+          <input
+            id="timingWeekday"
+            name="Timing (Select all applicable)"
+            type="checkbox"
+            class="choice"
+            value="weekday"
+            v-model="timing"
+          />
+          <label for="timingWeekday" class="checkbox">
+            Weekday </label
+          ><input
+            id="timingWeekend"
+            name="Timing (Select all applicable)"
+            type="checkbox"
+            class="choice"
+            value="weekend"
+            v-model="timing"
+          />
+          <label for="timingWeekend" class="checkbox">
+            Weekend </label
+          ><input
+            id="timingMorning"
+            name="Timing (Select all applicable)"
+            type="checkbox"
+            class="choice"
+            value="morning"
+            v-model="timing"
+          />
+          <label for="timingMorning" class="checkbox">
+            Morning </label
+          ><input
+            id="timingAfternoon"
+            name="Timing (Select all applicable)"
+            type="checkbox"
+            class="choice"
+            value="afternoon"
+            v-model="timing"
+          />
+          <label for="timingAfternoon" class="checkbox">
+            Afternoon </label
+          ><input
+            id="timingEvening"
+            name="Timing (Select all applicable)"
+            type="checkbox"
+            class="choice"
+            value="evening"
+            v-model="timing"
+          />
+          <label for="timingEvening" class="checkbox">
+            Evening
+          </label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Space</label>
+        <div class="checkbox-wrapper">
+          <input
+            id="spaceLittle"
+            name="Space"
+            type="radio"
+            class="choice"
+            value="little"
+            v-model="space"
+          />
+          <label for="spaceLittle" class="checkbox">
+            Little </label
+          ><input
+            id="spaceFair"
+            name="Space"
+            type="radio"
+            class="choice"
+            value="fair"
+            v-model="space"
+          />
+          <label for="spaceFair" class="checkbox">
+            Fair </label
+          ><input
+            id="spaceSpacious"
+            name="Space"
+            type="radio"
+            class="choice"
+            value="plenty"
+            v-model="space"
+          />
+          <label for="spaceSpacious" class="checkbox">
+            Plenty
+          </label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Chance of losing balls</label>
+        <div class="checkbox-wrapper">
+          <input
+            id="ballSafetyLow"
+            name="Chance of losing balls"
+            type="radio"
+            class="choice"
+            value="low"
+            v-model="ballSafety"
+          />
+          <label for="ballSafetyLow" class="checkbox">
+            Low </label
+          ><input
+            id="ballSafetyFair"
+            name="Chance of losing balls"
+            type="radio"
+            class="choice"
+            value="fair"
+            v-model="ballSafety"
+          />
+          <label for="ballSafetyFair" class="checkbox">
+            Fair </label
+          ><input
+            id="ballSafetyHigh"
+            name="Chance of losing balls"
+            type="radio"
+            class="choice"
+            value="high"
+            v-model="ballSafety"
+          />
+          <label for="ballSafetyHigh" class="checkbox">
+            High
+          </label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Accessibility/Convenience</label>
+        <div class="checkbox-wrapper">
+          <input
+            id="accessibilityEasy"
+            name="Accessibility/Convenience"
+            type="radio"
+            class="choice"
+            value="easy"
+            v-model="accessibility"
+          />
+          <label for="accessibilityEasy" class="checkbox">
+            Easy </label
+          ><input
+            id="accessibilityFair"
+            name="Accessibility/Convenience"
+            type="radio"
+            class="choice"
+            value="fair"
+            v-model="accessibility"
+          />
+          <label for="accessibilityFair" class="checkbox">
+            Fair </label
+          ><input
+            id="accessibilityHassle"
+            name="Accessibility/Convenience"
+            type="radio"
+            class="choice"
+            value="hassle"
+            v-model="accessibility"
+          />
+          <label for="accessibilityHassle" class="checkbox">
+            Hassle
+          </label>
+        </div>
+      </div>
+      <input
+        type="button"
+        value="NEXT"
+        class="next-button button is-small"
+        @click="onNextPage"
+      />
+    </div>
+    <div class="personal-details-wrapper">
+      <div class="field">
+        <label class="label">Player Name</label>
+        <input class="input is-small" type="text" v-model="player" />
+      </div>
+      <div class="field">
+        <label class="label">Instagram ID</label>
+        <input class="input is-small" type="text" v-model="ig" />
+      </div>
+      <div class="field">
+        <label class="label">Wall Remarks</label>
+        <div class="control">
+          <textarea
+            class="textarea is-small"
+            placeholder="e.g. Only after 9pm"
+          ></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Wall Photo</label>
         <div class="file is-small">
           <label class="file-label">
-            <input class="file-input" type="file" ref="imageFile" 
+            <input
+              class="file-input"
+              type="file"
+              ref="imageFile"
               accept="image/png, image/jpeg"
-              @change.prevent="setFile($event.target.files)" 
-              >
+              @change.prevent="setFile($event.target.files)"
+            />
             <span class="file-cta">
-              <span class="file-icon"><font-awesome-icon class="social-icon" :icon="['fas', 'upload']"/></span>
+              <span class="file-icon"
+                ><font-awesome-icon
+                  class="social-icon"
+                  :icon="['fas', 'upload']"
+              /></span>
               <span class="file-label">
                 Choose a file…
               </span>
             </span>
             <span class="file-name" v-if="files.length">
-              {{files[0].name}}
+              {{ files[0].name }}
             </span>
           </label>
         </div>
       </div>
-      <input type="button" value="next" class="button is-small">
-    </div>
-    <div class="personal-details-wrapper">
-      <div class="field">
-      <label class="label">Player Name</label>
-      <input class="input is-small" type="text" v-model="player">
-      </div>
-      <div class="field">
-      <label class="label">Instagram ID</label>
-      <input class="input is-small" type="text" v-model="ig">
-      </div>
       <div class="control">
-      <button class="button is-link">Submit</button>
+        <input
+          type="button"
+          value="Back"
+          class="back-button button is-small"
+          @click="onBackPage"
+        />
+        <input type="submit" value="Submit" class="button submit-button is-small">
       </div>
     </div>
   </form>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+import Search from "./Search";
 
 export default {
-  name: 'add-wall-form',
+  name: "add-wall-form",
+  components: { Search },
   data() {
     return {
-      player: '',
-      ig: '',
-      name: '',
-      trouble: '',
-      time: '',
-      space: '',
-      ballSafety: '',
-      transportation: '',
-      imageUrl: '',
-      region: 'Select dropdown',
-      metas: [
-        {
-          'label': 'Trouble/Passer-by',
-          'slug': 'trouble',
-          'choices': [
-            'None', 'Little', 'Fair', 'A lot'
-          ]
-        },
-        {
-          'label': 'Timing',
-          'slug': 'timing',
-          'choices': [
-            'Weekday', 'Weekend', 'Morning', 'Afternoon', 'Evening'
-          ]
-        },
-        {
-          'label': 'Space',
-          'slug': 'space',
-          'choices': [
-            'Little', 'Fair', 'Spacious'
-          ]
-        },
-      ],
-      characteristics: [
-        {
-          name: 'Spacious',
-          isChecked: false,
-        },
-        {
-          name: 'Weekend',
-          isChecked: false,
-        },
-        {
-          name: 'Weekday',
-          isChecked: false,
-        },
-        {
-          name: 'Night',
-          isChecked: false,
-        },
-        {
-          name: 'Daytime',
-          isChecked: false,
-        },
-        {
-          name: 'Short',
-          isChecked: false,
-        },
-        {
-          name: 'Tall',
-          isChecked: false,
-        },
-        {
-          name: 'Easy to lose ball',
-          isChecked: false,
-        },
-      ],
+      player: "",
+      ig: "",
+      name: "",
+      trouble: "",
+      timing: [],
+      space: "",
+      ballSafety: "",
+      accessibility: "",
+      imageUrl: "",
+      region: "Select dropdown",
       files: [],
       isUploadingImage: false
-    }
+    };
   },
   computed: {
     position() {
@@ -150,46 +325,61 @@ export default {
     }
   },
   methods: {
+    onBackPage() {
+      this.$el.querySelector(".map-details-wrapper").classList.add("active");
+      this.$el.querySelector(".personal-details-wrapper").classList.remove("active");
+    },
+    onNextPage() {
+      this.$el.querySelector(".map-details-wrapper").classList.remove("active");
+      this.$el.querySelector(".personal-details-wrapper").classList.add("active");
+    },
     handleForm(event) {
-      event.preventDefault(); 
-      
+      event.preventDefault();
+
       this.uploadImageFile(this.files, async () => {
-        const {lat, lng} = this.position;
+        const { lat, lng } = this.position;
         const data = {
-          ...this.$data, 
+          ...this.$data,
           position: {
             lat,
             lng
-          }};
+          }
+        };
         delete data.files;
         delete data.isUploadingImage;
 
+        console.log(data);
+        return;
+
         try {
-          const res = await axios.post('https://hkwallmap.firebaseio.com/walls.json', data);
+          const res = await axios.post(
+            "https://hkwallmap.firebaseio.com/walls.json",
+            data
+          );
           console.log(res);
           event.target.reset();
-        } catch(err) {
-          console.error(err)
+        } catch (err) {
+          console.error(err);
         }
       });
     },
     setFile(files) {
       this.files = files;
     },
-    uploadImageFile (files, cb) {
+    uploadImageFile(files, cb) {
       if (!files.length) {
         return cb();
       }
-      const file = files[0]
+      const file = files[0];
 
-      if (!file.type.match('image.*')) {
-        alert('Please upload an image.')
+      if (!file.type.match("image.*")) {
+        alert("Please upload an image.");
         return;
       }
 
       const metadata = {
         contentType: file.type
-      }
+      };
 
       this.isUploadingImage = true;
 
@@ -198,24 +388,27 @@ export default {
       const storage = this.$firebase.storage();
       const imageRef = storage.ref(`images/${file.name}`);
 
-      const uploadTask = imageRef.put(file, metadata).then((snapshot) => {
-        // Once the image is uploaded, obtain the download URL, which
-        // is the publicly accessible URL of the image.
-        return snapshot.ref.getDownloadURL().then((url) => {
-          return url;
+      const uploadTask = imageRef
+        .put(file, metadata)
+        .then(snapshot => {
+          // Once the image is uploaded, obtain the download URL, which
+          // is the publicly accessible URL of the image.
+          return snapshot.ref.getDownloadURL().then(url => {
+            return url;
+          });
         })
-      }).catch((error) => {
-        console.error('Error uploading image', error);
-      })
+        .catch(error => {
+          console.error("Error uploading image", error);
+        });
 
       // When the upload ends, set the value of the blog image URL
       // and signal that uploading is done.
-      uploadTask.then((url) => {
+      uploadTask.then(url => {
         this.imageUrl = url;
         this.isUploadingImage = false;
         cb();
-      })
-    },
+      });
+    }
   }
-}
+};
 </script>
