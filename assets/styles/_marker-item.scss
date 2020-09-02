@@ -25,6 +25,26 @@
       display: none;
       font-size: 20px;;
     }
+
+    .scales-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+
+      .scale-item {
+        margin-right: 5px;
+        margin-bottom: 5px;
+        padding: 3px 10px;
+        border-radius: 5.5px;;
+        border: 1px solid #CCC;
+        color: #CCC;
+        font-size: 12px;
+
+        &.active {
+          border-color: #000;
+          color: #000;
+        }
+      }
+    }
   }
 
   p {
