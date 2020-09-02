@@ -6,7 +6,7 @@
           <search></search>
         </div>
         <div class="field">
-        <label class="label">Region</label>
+        <label class="label">Region <span class="error" v-show="errors.region">*required</span></label>
         <div class="control">
           <div class="select is-small">
             <select v-model="region">
@@ -20,11 +20,11 @@
       </div>
       </div>
       <div class="field">
-        <label class="label">Name of Wall</label>
+        <label class="label">Name of Wall <span class="error" v-show="errors.name">*required</span></label>
         <input class="input is-small" type="text" v-model="name" placeholder="E.g. Stanley Ho Pitch 1" requried />
       </div>
       <div class="field">
-        <label class="label">Trouble/Passer-by</label>
+        <label class="label">Trouble/Passer-by <span class="error" v-show="errors.trouble">*required</span></label>
         <div class="checkbox-wrapper">
           <input
             id="troubleNone"
@@ -70,7 +70,7 @@
         </div>
       </div>
       <div class="field">
-        <label class="label">Timing (Select all applicable)</label>
+        <label class="label">Timing (Select all applicable) <span class="error" v-show="errors.timing">*required</span></label>
         <div class="checkbox-wrapper">
           <input
             id="timingWeekday"
@@ -126,7 +126,7 @@
         </div>
       </div>
       <div class="field">
-        <label class="label">Space</label>
+        <label class="label">Space <span class="error" v-show="errors.space">*required</span></label>
         <div class="checkbox-wrapper">
           <input
             id="spaceLittle"
@@ -162,7 +162,7 @@
         </div>
       </div>
       <div class="field">
-        <label class="label">Chance of losing balls</label>
+        <label class="label">Chance of losing balls <span class="error" v-show="errors.ballSafety">*required</span></label>
         <div class="checkbox-wrapper">
           <input
             id="ballSafetyLow"
@@ -198,7 +198,7 @@
         </div>
       </div>
       <div class="field">
-        <label class="label">Accessibility/Convenience</label>
+        <label class="label">Accessibility/Convenience <span class="error" v-show="errors.accessibility">*required</span></label>
         <div class="checkbox-wrapper">
           <input
             id="accessibilityEasy"
@@ -315,8 +315,17 @@ export default {
       space: "",
       ballSafety: "",
       accessibility: "",
-      imageUrl: "",
       region: "Select dropdown",
+      errors: {
+        name: false,
+        trouble: false,
+        timing: false,
+        space: false,
+        ballSafety: false,
+        accessibility: false,
+        region: false,
+      },
+      imageUrl: "",
       files: [],
       isUploadingImage: false
     };
@@ -332,8 +341,33 @@ export default {
       this.$el.querySelector(".personal-details-wrapper").classList.remove("active");
     },
     onNextPage() {
+      if (!this.checkWallDetails()) {
+        return;
+      }
       this.$el.querySelector(".map-details-wrapper").classList.remove("active");
       this.$el.querySelector(".personal-details-wrapper").classList.add("active");
+    },
+    checkWallDetails() {
+      const inputs = ['name', 'region', 'trouble', 'timing', 'space', 'ballSafety', 'accessibility'];
+      let isValid = true;
+
+      for (let i = 0; i < inputs.length; i += 1) {
+        if (inputs[i] === 'timing') {
+          const error = !this[inputs[i]].length;
+          this.errors[inputs[i]] = error;
+          isValid = isValid && !error;
+        } else if (inputs[i] === 'region') {
+          const error = this[inputs[i]] === 'Select dropdown';
+          this.errors[inputs[i]] = error;
+          isValid = isValid && !error;
+        } else {
+          const error = !this[inputs[i]]
+          this.errors[inputs[i]] = error;
+          isValid = isValid && !error;
+        }
+      }
+
+      return isValid;
     },
     handleForm(event) {
       event.preventDefault();
