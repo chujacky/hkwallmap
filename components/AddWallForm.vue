@@ -1,14 +1,11 @@
 <template>
   <form @submit="handleForm">
     <div class="map-details-wrapper active">
-      <div class="field">
-        <search></search>
-      </div>
-      <div class="field">
-        <label class="label">Name of Wall</label>
-        <input class="input is-small" type="text" v-model="name" requried />
-      </div>
-      <div class="field">
+      <div class="row">
+        <div class="field search-field">
+          <search></search>
+        </div>
+        <div class="field">
         <label class="label">Region</label>
         <div class="control">
           <div class="select is-small">
@@ -20,6 +17,11 @@
             </select>
           </div>
         </div>
+      </div>
+      </div>
+      <div class="field">
+        <label class="label">Name of Wall</label>
+        <input class="input is-small" type="text" v-model="name" placeholder="E.g. Stanley Ho Pitch 1" requried />
       </div>
       <div class="field">
         <label class="label">Trouble/Passer-by</label>

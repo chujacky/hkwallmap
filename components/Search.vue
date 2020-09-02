@@ -1,5 +1,5 @@
 <template>
-  <div class="field address-search">
+  <div class="address-search">
     <label class="label">Wall Address</label>
     <gmap-autocomplete
       class="input is-small"
