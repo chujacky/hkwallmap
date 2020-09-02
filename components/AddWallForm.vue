@@ -384,9 +384,6 @@ export default {
         delete data.files;
         delete data.isUploadingImage;
 
-        console.log(data);
-        return;
-
         try {
           const res = await axios.post(
             "https://hkwallmap.firebaseio.com/walls.json",
