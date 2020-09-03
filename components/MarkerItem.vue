@@ -13,33 +13,41 @@
         <h2 class="title is-5 mb-4">{{marker.name}}</h2>
         <div class="safety-notes meta-item">
           <p class="has-text-weight-semibold meta-title mb-1">Trouble/Passby</p>
-          <div class="scales-wrapper">
-            <scale-item v-for="scale in scales.trouble" :key="scale" :value="marker.trouble" :scale="scale"></scale-item>
+          <div class="scales-wrapper" v-if="marker.trouble">
+            <scale-item v-for="scale in scales.trouble" 
+              :key="scale" 
+              :value="marker.trouble" 
+              :scale="scale"></scale-item>
           </div>
+          <div class="no-info" v-else>N/A, Let us know!</div>
         </div>
         <div class="time-notes meta-item">
           <p class="has-text-weight-semibold meta-title mb-1">Timing</p>
-            <div class="scales-wrapper" >
+            <div class="scales-wrapper" v-if="marker.hasOwnProperty('timing')">
               <scale-item v-for="scale in scales.timing" :key="scale" :value="marker.timing" :scale="scale"></scale-item>
             </div>
+            <div class="no-info" v-else>N/A, Let us know!</div>
         </div>
         <div class="space-notes meta-item">
           <p class="has-text-weight-semibold meta-title mb-1">Space</p>
-            <div class="scales-wrapper">
+            <div class="scales-wrapper" v-if="marker.space">
               <scale-item v-for="scale in scales.space" :value="marker.space" :key="scale" :scale="scale"></scale-item>
             </div>
+            <div class="no-info" v-else>N/A, Let us know!</div>
         </div>
         <div class="ball-safety-notes meta-item">
           <p class="has-text-weight-semibold meta-title mb-1">Chance of losing ball</p>
-            <div class="scales-wrapper">
+            <div class="scales-wrapper" v-if="marker.ballSafety">
               <scale-item v-for="scale in scales.ballSafety" :value="marker.ballSafety" :key="scale" :scale="scale"></scale-item>
             </div>
+            <div class="no-info" v-else>N/A, Let us know!</div>
         </div>
         <div class="accessibility-notes meta-item">
           <p class="has-text-weight-semibold meta-title mb-1">Accessibility</p>
-            <div class="scales-wrapper">
+            <div class="scales-wrapper" v-if="marker.accessibility">
               <scale-item v-for="scale in scales.accessibility" :value="marker.accessibility" :key="scale" :scale="scale"></scale-item>
             </div>
+            <div class="no-info" v-else>N/A, Let us know!</div>
         </div>
       </div> 
       </div>
@@ -137,8 +145,8 @@ export default {
             value: 'Hassle',
           }, 
           {
-            slug: 'high',
-            value: 'High'
+            slug: 'fair',
+            value: 'Fair'
           }
         ]
       }
