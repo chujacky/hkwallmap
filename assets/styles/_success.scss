@@ -1,0 +1,27 @@
+.success-section {
+  .container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .fa-check-circle {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+
+    .thanks-text {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .links-container {
+      display: flex;
+      justify-content: space-between;
+      
+      a {
+        padding: 10px;
+      }
+    }
+  }
+}

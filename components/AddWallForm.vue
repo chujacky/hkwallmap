@@ -301,34 +301,13 @@
 <script>
 import axios from "axios";
 import Search from "./Search";
+import initialState from '~/static/form.js'
 
 export default {
   name: "add-wall-form",
   components: { Search },
   data() {
-    return {
-      player: "",
-      ig: "",
-      name: "",
-      trouble: "",
-      timing: [],
-      space: "",
-      ballSafety: "",
-      accessibility: "",
-      region: "Select dropdown",
-      errors: {
-        name: false,
-        trouble: false,
-        timing: false,
-        space: false,
-        ballSafety: false,
-        accessibility: false,
-        region: false,
-      },
-      imageUrl: "",
-      files: [],
-      isUploadingImage: false
-    };
+    return initialState();
   },
   computed: {
     position() {
@@ -389,8 +368,9 @@ export default {
             "https://hkwallmap.firebaseio.com/walls.json",
             data
           );
-          console.log(res);
           event.target.reset();
+          Object.assign(this.$data, initialState());
+          this.$router.push({name: 'add-success'});
         } catch (err) {
           console.error(err);
         }
