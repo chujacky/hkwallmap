@@ -6,13 +6,18 @@
 
     <template v-if="this.$route.name === 'index'">
       <gmap-marker
-      v-for="(item, index) in markers"
-      :key="index"
-      :position="item.position"
-      :icon="icon"
-      :clickable="true"
-      @click="setActiveMarker(item,index)"
-    />
+        v-for="(item, index) in markers"
+        :key="index"
+        :position="item.position"
+        :icon="icon"
+        :clickable="true"
+        @click="setActiveMarker(item, index)"
+      />
+      <gmap-marker
+        :position="activeMarker.position"
+        :icon="activeIcon"
+        :zIndex="activeIndex"
+      />
     </template>
     <template v-else-if="Object.keys(newMarker).length">
       <gmap-marker
@@ -39,9 +44,6 @@ export default {
           height: -35
         },
       },
-      icon: {
-        url: '/marker.svg',
-      },
       mapOptions: {
         streetViewControl: false,
         styles: styles.muted,
@@ -49,11 +51,20 @@ export default {
         disableDefaultUI: true,
         zoomControl: true
       },
+      icon: {
+        url: '/marker.svg',
+      },
+      activeIcon: {
+        url: '/selected.svg'
+      },
+      activeIndex: 1000
     };
   },
   computed: {
     markers() {
-      return this.$store.state.walls;
+      return this.$store.state.walls.filter(wall =>
+        wall.id !== this.$store.state.activeMarker.id
+      );
     },
     newMarker() {
       return this.$store.state.newMarker;
