@@ -16,7 +16,7 @@
                 #{{marker.id}}
               </div>
             </div>
-            <h2 class="title mb-4">{{ marker.name }}</h2>
+            <h2 class="title">{{ marker.name }}</h2>
             <div class="safety-notes meta-item">
               <p class="has-text-weight-semibold meta-title mb-1">
                 Trouble/Passby
@@ -29,7 +29,7 @@
                   :scale="scale"
                 ></scale-item>
               </div>
-              <div class="no-info" v-else>N/A, Let us know!</div>
+              <div class="no-info" v-else>N/A - Let us know!</div>
             </div>
             <div class="time-notes meta-item">
               <p class="has-text-weight-semibold meta-title mb-1">Timing</p>
@@ -41,7 +41,7 @@
                   :scale="scale"
                 ></scale-item>
               </div>
-              <div class="no-info" v-else>N/A, Let us know!</div>
+              <div class="no-info" v-else>N/A - Let us know!</div>
             </div>
             <div class="space-notes meta-item">
               <p class="has-text-weight-semibold meta-title mb-1">Space</p>
@@ -53,7 +53,7 @@
                   :scale="scale"
                 ></scale-item>
               </div>
-              <div class="no-info" v-else>N/A, Let us know!</div>
+              <div class="no-info" v-else>N/A - Let us know!</div>
             </div>
             <div class="ball-safety-notes meta-item">
               <p class="has-text-weight-semibold meta-title mb-1">
@@ -67,7 +67,7 @@
                   :scale="scale"
                 ></scale-item>
               </div>
-              <div class="no-info" v-else>N/A, Let us know!</div>
+              <div class="no-info" v-else>N/A - Let us know!</div>
             </div>
             <div class="accessibility-notes meta-item">
               <p class="has-text-weight-semibold meta-title mb-1">
@@ -81,7 +81,7 @@
                   :scale="scale"
                 ></scale-item>
               </div>
-              <div class="no-info" v-else>N/A, Let us know!</div>
+              <div class="no-info" v-else>N/A - Let us know!</div>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@
                 #{{marker.id}}
               </div>
             </div>
-          <h2 class="title is-5 mb-4">{{ marker.name }}</h2>
+          <h2 class="titletitle">{{ marker.name }}</h2>
           <div class="safety-notes meta-item">
             <p class="has-text-weight-semibold meta-title mb-1">
               Trouble/Passby
@@ -117,7 +117,7 @@
                 :scale="scale"
               ></scale-item>
             </div>
-            <div class="no-info" v-else>N/A, Let us know!</div>
+            <div class="no-info" v-else>N/A - Let us know!</div>
           </div>
           <div class="time-notes meta-item">
             <p class="has-text-weight-semibold meta-title mb-1">Timing</p>
@@ -129,7 +129,7 @@
                 :scale="scale"
               ></scale-item>
             </div>
-            <div class="no-info" v-else>N/A, Let us know!</div>
+            <div class="no-info" v-else>N/A - Let us know!</div>
           </div>
           <div class="space-notes meta-item">
             <p class="has-text-weight-semibold meta-title mb-1">Space</p>
@@ -141,7 +141,7 @@
                 :scale="scale"
               ></scale-item>
             </div>
-            <div class="no-info" v-else>N/A, Let us know!</div>
+            <div class="no-info" v-else>N/A - Let us know!</div>
           </div>
           <div class="ball-safety-notes meta-item">
             <p class="has-text-weight-semibold meta-title mb-1">
@@ -155,7 +155,7 @@
                 :scale="scale"
               ></scale-item>
             </div>
-            <div class="no-info" v-else>N/A, Let us know!</div>
+            <div class="no-info" v-else>N/A - Let us know!</div>
           </div>
           <div class="accessibility-notes meta-item">
             <p class="has-text-weight-semibold meta-title mb-1">
@@ -169,7 +169,7 @@
                 :scale="scale"
               ></scale-item>
             </div>
-            <div class="no-info" v-else>N/A, Let us know!</div>
+            <div class="no-info" v-else>N/A - Let us know!</div>
           </div>
         </div>
       </div>
