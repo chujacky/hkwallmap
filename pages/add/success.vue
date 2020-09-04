@@ -17,6 +17,17 @@
 
 <script>
 export default {
-
+    head() {
+    return {
+      title: 'Successful',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Your wall has been successfully added!'
+        }
+      ]
+    }
+  }
 }
 </script>
