@@ -5,7 +5,7 @@
         <img src="/logo.png" alt="">
       </nuxt-link>
 
-      <nuxt-link to='/add' class="nav-add">
+      <nuxt-link to='/add' class="navbar-item nav-add">
         ADD WALL
       </nuxt-link>
     </div>
