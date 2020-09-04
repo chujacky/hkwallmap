@@ -104,7 +104,7 @@
                 #{{marker.id}}
               </div>
             </div>
-          <h2 class="titletitle">{{ marker.name }}</h2>
+          <h2 class="title">{{ marker.name }}</h2>
           <div class="safety-notes meta-item">
             <p class="has-text-weight-semibold meta-title mb-1">
               Trouble/Passby
