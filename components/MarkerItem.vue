@@ -12,9 +12,6 @@
               </figure>
             </div>
             <div class="wall-no-wrapper">
-              <div class="logo-wrapper">
-                <img src="/wall-no-logo.png" alt="">
-              </div>
               <div class="wall-no">
                 #{{marker.id}}
               </div>
@@ -103,9 +100,6 @@
             </figure>
           </div>
           <div class="wall-no-wrapper">
-              <div class="logo-wrapper">
-                <img src="/wall-no-logo.png" alt="">
-              </div>
               <div class="wall-no">
                 #{{marker.id}}
               </div>
