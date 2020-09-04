@@ -5,9 +5,11 @@
         <gmap></gmap>
       </div>
     </div>
+    <no-ssr>
     <div class="marker-meta-container">
       <marker-item></marker-item>
     </div>
+    </no-ssr>
   </section>
 </template>
 

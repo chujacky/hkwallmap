@@ -71,7 +71,12 @@
     width: auto;
     left: 0;
     right: 0;
-    transition: top 1s;
+    transition: top 0.5s;
+
+    &.fade-enter-active,
+    &.fade-leave-active {
+      transition: none;
+    }
 
     &.active {
       top: 52px;
