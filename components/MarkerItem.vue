@@ -11,7 +11,15 @@
                 <img class="add-button" src="/placeholder.png" v-else />
               </figure>
             </div>
-            <h2 class="title is-5 mb-4">{{ marker.name }}</h2>
+            <div class="wall-no-wrapper">
+              <div class="logo-wrapper">
+                <img src="/wall-no-logo.png" alt="">
+              </div>
+              <div class="wall-no">
+                #{{marker.id}}
+              </div>
+            </div>
+            <h2 class="title mb-4">{{ marker.name }}</h2>
             <div class="safety-notes meta-item">
               <p class="has-text-weight-semibold meta-title mb-1">
                 Trouble/Passby
@@ -94,6 +102,14 @@
               <img class="add-button" src="/placeholder.png" v-else />
             </figure>
           </div>
+          <div class="wall-no-wrapper">
+              <div class="logo-wrapper">
+                <img src="/wall-no-logo.png" alt="">
+              </div>
+              <div class="wall-no">
+                #{{marker.id}}
+              </div>
+            </div>
           <h2 class="title is-5 mb-4">{{ marker.name }}</h2>
           <div class="safety-notes meta-item">
             <p class="has-text-weight-semibold meta-title mb-1">
