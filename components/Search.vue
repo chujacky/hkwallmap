@@ -1,6 +1,6 @@
 <template>
   <div class="address-search">
-    <label class="label">Wall Address</label>
+    <label class="label">Wall Address <span class="error" v-show="error">*please add a point</span></label>
     <gmap-autocomplete
       class="input is-small"
       placeholder="Search address or drop the marker on the map"
@@ -18,6 +18,9 @@ export default {
     return {
       address: ''
     }
+  },
+  props: {
+    error: Boolean
   },
   methods: {
     setPlace(place) {

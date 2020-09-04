@@ -85,6 +85,10 @@ export default {
   },
   methods: {
     addMarker(event) {
+      if (this.$route.name === 'index') {
+        return;
+      }
+      
       this.$store.commit('setNewMarker', {
         lat: event.latLng.lat(),
         lng: event.latLng.lng()

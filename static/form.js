@@ -17,6 +17,7 @@ export default function initialState (){
       ballSafety: false,
       accessibility: false,
       region: false,
+      marker: false,
     },
     imageUrl: "",
     files: [],

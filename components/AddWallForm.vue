@@ -3,7 +3,7 @@
     <div class="map-details-wrapper active">
       <div class="row">
         <div class="field search-field">
-          <search></search>
+          <search :error="errors.marker"></search>
         </div>
         <div class="field">
         <label class="label">Region <span class="error" v-show="errors.region">*required</span></label>
@@ -23,7 +23,7 @@
         <label class="label">Name of Wall <span class="error" v-show="errors.name">*required</span></label>
         <input class="input is-small" type="text" v-model="name" placeholder="E.g. Stanley Ho Pitch 1" requried />
       </div>
-      <div class="field">
+      <div class="field checkbox-field">
         <label class="label">Trouble/Passer-by <span class="error" v-show="errors.trouble">*required</span></label>
         <div class="checkbox-wrapper">
           <input
@@ -69,7 +69,7 @@
           </label>
         </div>
       </div>
-      <div class="field">
+      <div class="field checkbox-field">
         <label class="label">Timing (Select all applicable) <span class="error" v-show="errors.timing">*required</span></label>
         <div class="checkbox-wrapper">
           <input
@@ -125,7 +125,7 @@
           </label>
         </div>
       </div>
-      <div class="field">
+      <div class="field checkbox-field">
         <label class="label">Space <span class="error" v-show="errors.space">*required</span></label>
         <div class="checkbox-wrapper">
           <input
@@ -161,7 +161,7 @@
           </label>
         </div>
       </div>
-      <div class="field">
+      <div class="field checkbox-field">
         <label class="label">Chance of losing balls <span class="error" v-show="errors.ballSafety">*required</span></label>
         <div class="checkbox-wrapper">
           <input
@@ -197,7 +197,7 @@
           </label>
         </div>
       </div>
-      <div class="field">
+      <div class="field checkbox-field">
         <label class="label">Accessibility/Convenience <span class="error" v-show="errors.accessibility">*required</span></label>
         <div class="checkbox-wrapper">
           <input
@@ -327,7 +327,7 @@ export default {
       this.$el.querySelector(".personal-details-wrapper").classList.add("active");
     },
     checkWallDetails() {
-      const inputs = ['name', 'region', 'trouble', 'timing', 'space', 'ballSafety', 'accessibility'];
+      const inputs = ['name', 'region', 'trouble', 'timing', 'space', 'ballSafety', 'accessibility', 'marker'];
       let isValid = true;
 
       for (let i = 0; i < inputs.length; i += 1) {
@@ -337,6 +337,10 @@ export default {
           isValid = isValid && !error;
         } else if (inputs[i] === 'region') {
           const error = this[inputs[i]] === 'Select dropdown';
+          this.errors[inputs[i]] = error;
+          isValid = isValid && !error;
+        } else if (inputs[i] === 'marker') {
+          const error = !Object.keys(this.position).length;
           this.errors[inputs[i]] = error;
           isValid = isValid && !error;
         } else {
