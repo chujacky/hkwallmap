@@ -13,7 +13,7 @@
             </div>
             <div class="wall-no-wrapper">
               <div class="wall-no">
-                #{{marker.id}}
+                #{{marker.no}}
               </div>
             </div>
             <h2 class="title">{{ marker.name }}</h2>
@@ -101,7 +101,7 @@
           </div>
           <div class="wall-no-wrapper">
               <div class="wall-no">
-                #{{marker.id}}
+                #{{marker.no}}
               </div>
             </div>
           <h2 class="title">{{ marker.name }}</h2>

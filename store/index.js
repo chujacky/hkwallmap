@@ -23,9 +23,11 @@ export const actions = {
     return axios.get('https://hkwallmap.firebaseio.com/walls.json')
     .then(res => {
       const wallsArray = [];
+      let i = 1;
 
       for (const key in res.data) {
-        wallsArray.push({...res.data[key], id: key});
+        wallsArray.push({...res.data[key], id: key, no: i});
+        i+=1;
       }
 
       const randomIndex = Math.floor(Math.random() * wallsArray.length);
