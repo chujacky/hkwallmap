@@ -129,6 +129,16 @@
         }
       }
     }
+
+    @media (max-width: 375px) {
+      .form-container {
+        form {
+          .row {
+            flex-direction: column;
+          }
+        }
+      }
+    }
     
     @media (max-width: 768px) {
       .map-container,
