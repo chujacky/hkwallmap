@@ -259,7 +259,7 @@
         </div>
       </div>
       <div class="field">
-        <label class="label">Wall Photo</label>
+        <label class="label">Wall Photo (Landscape)</label>
         <div class="file is-small">
           <label class="file-label">
             <input
@@ -374,11 +374,33 @@ export default {
           );
           event.target.reset();
           Object.assign(this.$data, initialState());
-          this.$router.push({name: 'add-success'});
+          this.fetchWalls(() => {
+            this.$router.push({name: 'add-success'});
+          });
         } catch (err) {
           console.error(err);
         }
       });
+    },
+    async fetchWalls(cb) {
+      try {
+        const res = await axios.get("https://hkwallmap.firebaseio.com/walls.json");
+        const wallsArray = [];
+        let i = 1;
+
+        for (const key in res.data) {
+          wallsArray.push({...res.data[key], id: key, no: i});
+          i+=1;
+        }
+
+        this.$store.commit('setWalls', wallsArray);
+        this.$store.commit('setActiveMarker', wallsArray[i - 2]);
+
+        cb();
+      } catch (err) {
+        cb();
+        console.error(err);
+      }
     },
     setFile(files) {
       this.files = files;
