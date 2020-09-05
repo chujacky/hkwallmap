@@ -225,8 +225,8 @@ export default {
             value: "Afternoon"
           },
           {
-            slug: "night",
-            value: "Night"
+            slug: "evening",
+            value: "Evening"
           }
         ],
         space: [
