@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div>
-      <span>HKLAXWALLS © 2020 </span>
+      <span>HKLAXWALLS © {{ new Date().getFullYear() }} </span>
       <span>|</span>
       <span>
         <a href="https://www.instagram.com/hk_lax_walls/" target="_blank" rel="noopener noreferrer">
@@ -16,6 +16,6 @@
 
 <script>
 export default {
-  name: 'page-footer'
+  name: 'page-footer',
 }
 </script>
