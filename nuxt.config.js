@@ -9,7 +9,11 @@ export default {
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
-  target: 'server',
+  target: 'static',
+  router: {
+    base: '/hkwallmap/'
+  },
+  baseURL: '/hkwallmap/',
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -60,9 +64,9 @@ export default {
           icons: ['fas']
         },
         {
-          set:'@fortawesome/free-brands-svg-icons',
+          set: '@fortawesome/free-brands-svg-icons',
           icons: ['fab']
-       }
+        }
       ]
     }]
   ],
@@ -70,7 +74,7 @@ export default {
     scss: ['./assets/styles/*.scss']
   },
   env: {
-    VUE_APP_GOOGLE_MAPS_API_KEY: process.env.VUE_APP_GOOGLE_MAPS_API_KEY
+    gmap_key: process.env.VUE_APP_GOOGLE_MAPS_API_KEY
   },
   /*
   ** Build configuration
@@ -85,6 +89,6 @@ export default {
       }
     },
     transpile: [/^vue2-google-maps($|\/)/],
-    extend(config, ctx) {}
+    extend(config, ctx) { }
   }
 }
