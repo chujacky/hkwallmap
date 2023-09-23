@@ -71,10 +71,13 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Static HTML export with Nuxt
-        run: ${{ steps.detect-package-manager.outputs.manager }} run generate
+        run: | 
+          echo "test: $TEST_VAR" 
+          ${{ steps.detect-package-manager.outputs.manager }} run generate
         env:
           VUE_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.VUE_APP_GOOGLE_MAPS_API_KEY }}
           FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          TEST_VAR: ${{ vars.TEST_VAR }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
