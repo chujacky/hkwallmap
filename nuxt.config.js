@@ -74,7 +74,8 @@ export default {
     scss: ['./assets/styles/*.scss']
   },
   env: {
-    gmap_key: process.env.VUE_APP_GOOGLE_MAPS_API_KEY
+    VUE_APP_GOOGLE_MAPS_API_KEY: process.env.VUE_APP_GOOGLE_MAPS_API_KEY,
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY
   },
   /*
   ** Build configuration
