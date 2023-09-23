@@ -5,25 +5,12 @@
     </gmap-info-window> -->
 
     <template v-if="this.$route.name === 'index'">
-      <gmap-marker
-        v-for="(item, index) in markers"
-        :key="index"
-        :position="item.position"
-        :icon="icon"
-        :clickable="true"
-        @click="setActiveMarker(item, index)"
-      />
-      <gmap-marker
-        :position="activeMarker.position"
-        :icon="activeIcon"
-        :zIndex="activeIndex"
-      />
+      <gmap-marker v-for="(item, index) in markers" :key="index" :position="item.position" :icon="icon" :clickable="true"
+        @click="setActiveMarker(item, index)" />
+      <gmap-marker :position="activeMarker.position" :icon="activeIcon" :zIndex="activeIndex" />
     </template>
     <template v-else-if="Object.keys(newMarker).length">
-      <gmap-marker
-        :position="newMarker"
-        :clickable="true"
-      />
+      <gmap-marker :position="newMarker" :clickable="true" />
     </template>
   </Gmap-map>
 </template>
@@ -52,10 +39,10 @@ export default {
         zoomControl: true
       },
       icon: {
-        url: '/marker.svg',
+        url: '/hkwallmap/marker.svg',
       },
       activeIcon: {
-        url: '/selected.svg'
+        url: '/hkwallmap/selected.svg'
       },
       activeIndex: 1000
     };
@@ -77,7 +64,7 @@ export default {
         return this.newMarker;
       }
 
-      return {lat:22.3293, lng:114.1694};
+      return { lat: 22.3293, lng: 114.1694 };
     },
     zoom() {
       return this.$route.name === 'add' && Object.keys(this.newMarker).length ? 16 : 12;
@@ -88,7 +75,7 @@ export default {
       if (this.$route.name === 'index') {
         return;
       }
-      
+
       this.$store.commit('setNewMarker', {
         lat: event.latLng.lat(),
         lng: event.latLng.lng()
@@ -103,7 +90,7 @@ export default {
 </script>
 
 <style>
-  .content {
-    padding: 5px;
-  }
+.content {
+  padding: 5px;
+}
 </style>
