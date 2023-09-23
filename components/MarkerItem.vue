@@ -76,7 +76,7 @@
           <div class="meta-item image-wraper">
             <figure class="image is-16by9">
               <img :src="marker.imageUrl" v-if="marker.imageUrl" />
-              <img class="add-button" src="/placeholder.png" v-else />
+              <img class="add-button" src="/hkwallmap/placeholder.png" v-else />
             </figure>
           </div>
           <div class="wall-no-wrapper">
