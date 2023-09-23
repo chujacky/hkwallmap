@@ -2,7 +2,7 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <nuxt-link to="/" class="navbar-item">
-        <img src="/logo.png" alt="">
+        <img src="/hkwallmap/logo.png" alt="" />
       </nuxt-link>
 
       <nuxt-link to='/add' class="navbar-item">
@@ -25,11 +25,11 @@ export default {
 </script>
 
 <style>
-  a.navbar-item.is-active {
-    cursor: default;
-  }
+a.navbar-item.is-active {
+  cursor: default;
+}
 
-  .fa-instagram {
-    font-size: 25px;
-  }
+.fa-instagram {
+  font-size: 25px;
+}
 </style>

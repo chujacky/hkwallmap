@@ -8,12 +8,12 @@
             <div class="meta-item image-wraper">
               <figure class="image is-16by9">
                 <img :src="marker.imageUrl" v-if="marker.imageUrl" />
-                <img class="add-button" src="/placeholder.png" v-else />
+                <img class="add-button" src="/hkwallmap/placeholder.png" v-else />
               </figure>
             </div>
             <div class="wall-no-wrapper">
               <div class="wall-no">
-                #{{marker.no}}
+                #{{ marker.no }}
               </div>
             </div>
             <h2 class="title">{{ marker.name }}</h2>
@@ -22,36 +22,24 @@
                 Trouble/Passby
               </p>
               <div class="scales-wrapper" v-if="marker.trouble">
-                <scale-item
-                  v-for="scale in scales.trouble"
-                  :key="scale.slug"
-                  :value="marker.trouble"
-                  :scale="scale"
-                ></scale-item>
+                <scale-item v-for="scale in scales.trouble" :key="scale.slug" :value="marker.trouble"
+                  :scale="scale"></scale-item>
               </div>
               <div class="no-info" v-else>N/A - Let us know!</div>
             </div>
             <div class="time-notes meta-item">
               <p class="has-text-weight-semibold meta-title mb-1">Timing</p>
               <div class="scales-wrapper" v-if="marker.hasOwnProperty('timing')">
-                <scale-item
-                  v-for="scale in scales.timing"
-                  :key="scale.slug"
-                  :value="marker.timing"
-                  :scale="scale"
-                ></scale-item>
+                <scale-item v-for="scale in scales.timing" :key="scale.slug" :value="marker.timing"
+                  :scale="scale"></scale-item>
               </div>
               <div class="no-info" v-else>N/A - Let us know!</div>
             </div>
             <div class="space-notes meta-item">
               <p class="has-text-weight-semibold meta-title mb-1">Space</p>
               <div class="scales-wrapper" v-if="marker.space">
-                <scale-item
-                  v-for="scale in scales.space"
-                  :value="marker.space"
-                  :key="scale.slug"
-                  :scale="scale"
-                ></scale-item>
+                <scale-item v-for="scale in scales.space" :value="marker.space" :key="scale.slug"
+                  :scale="scale"></scale-item>
               </div>
               <div class="no-info" v-else>N/A - Let us know!</div>
             </div>
@@ -60,12 +48,8 @@
                 Chance of losing ball
               </p>
               <div class="scales-wrapper" v-if="marker.ballSafety">
-                <scale-item
-                  v-for="scale in scales.ballSafety"
-                  :value="marker.ballSafety"
-                  :key="scale.slug"
-                  :scale="scale"
-                ></scale-item>
+                <scale-item v-for="scale in scales.ballSafety" :value="marker.ballSafety" :key="scale.slug"
+                  :scale="scale"></scale-item>
               </div>
               <div class="no-info" v-else>N/A - Let us know!</div>
             </div>
@@ -74,12 +58,8 @@
                 Accessibility
               </p>
               <div class="scales-wrapper" v-if="marker.accessibility">
-                <scale-item
-                  v-for="scale in scales.accessibility"
-                  :value="marker.accessibility"
-                  :key="scale.slug"
-                  :scale="scale"
-                ></scale-item>
+                <scale-item v-for="scale in scales.accessibility" :value="marker.accessibility" :key="scale.slug"
+                  :scale="scale"></scale-item>
               </div>
               <div class="no-info" v-else>N/A - Let us know!</div>
             </div>
@@ -100,46 +80,34 @@
             </figure>
           </div>
           <div class="wall-no-wrapper">
-              <div class="wall-no">
-                #{{marker.no}}
-              </div>
+            <div class="wall-no">
+              #{{ marker.no }}
             </div>
+          </div>
           <h2 class="title">{{ marker.name }}</h2>
           <div class="safety-notes meta-item">
             <p class="has-text-weight-semibold meta-title mb-1">
               Trouble/Passby
             </p>
             <div class="scales-wrapper" v-if="marker.trouble">
-              <scale-item
-                v-for="scale in scales.trouble"
-                :key="scale.slug"
-                :value="marker.trouble"
-                :scale="scale"
-              ></scale-item>
+              <scale-item v-for="scale in scales.trouble" :key="scale.slug" :value="marker.trouble"
+                :scale="scale"></scale-item>
             </div>
             <div class="no-info" v-else>N/A - Let us know!</div>
           </div>
           <div class="time-notes meta-item">
             <p class="has-text-weight-semibold meta-title mb-1">Timing</p>
             <div class="scales-wrapper" v-if="marker.hasOwnProperty('timing')">
-              <scale-item
-                v-for="scale in scales.timing"
-                :key="scale.slug"
-                :value="marker.timing"
-                :scale="scale"
-              ></scale-item>
+              <scale-item v-for="scale in scales.timing" :key="scale.slug" :value="marker.timing"
+                :scale="scale"></scale-item>
             </div>
             <div class="no-info" v-else>N/A - Let us know!</div>
           </div>
           <div class="space-notes meta-item">
             <p class="has-text-weight-semibold meta-title mb-1">Space</p>
             <div class="scales-wrapper" v-if="marker.space">
-              <scale-item
-                v-for="scale in scales.space"
-                :value="marker.space"
-                :key="scale.slug"
-                :scale="scale"
-              ></scale-item>
+              <scale-item v-for="scale in scales.space" :value="marker.space" :key="scale.slug"
+                :scale="scale"></scale-item>
             </div>
             <div class="no-info" v-else>N/A - Let us know!</div>
           </div>
@@ -148,12 +116,8 @@
               Chance of losing ball
             </p>
             <div class="scales-wrapper" v-if="marker.ballSafety">
-              <scale-item
-                v-for="scale in scales.ballSafety"
-                :value="marker.ballSafety"
-                :key="scale.slug"
-                :scale="scale"
-              ></scale-item>
+              <scale-item v-for="scale in scales.ballSafety" :value="marker.ballSafety" :key="scale.slug"
+                :scale="scale"></scale-item>
             </div>
             <div class="no-info" v-else>N/A - Let us know!</div>
           </div>
@@ -162,12 +126,8 @@
               Accessibility
             </p>
             <div class="scales-wrapper" v-if="marker.accessibility">
-              <scale-item
-                v-for="scale in scales.accessibility"
-                :value="marker.accessibility"
-                :key="scale.slug"
-                :scale="scale"
-              ></scale-item>
+              <scale-item v-for="scale in scales.accessibility" :value="marker.accessibility" :key="scale.slug"
+                :scale="scale"></scale-item>
             </div>
             <div class="no-info" v-else>N/A - Let us know!</div>
           </div>
